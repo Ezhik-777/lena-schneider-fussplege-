@@ -96,7 +96,7 @@ export default function Services() {
             Professionelle Fußpflegedienstleistungen
           </h2>
           <p className="text-lg text-gray-600">
-            Von medizinischer Behandlung bis zur entspannenden Massage -
+            Von professioneller Pflege bis zur entspannenden Massage -
             wir bieten alles für gesunde und gepflegte Füße.
           </p>
         </div>
