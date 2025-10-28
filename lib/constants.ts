@@ -5,14 +5,14 @@
 
 export const BUSINESS_INFO = {
   name: "Fußpflege Sachsenheim",
-  owner: "Elena", // Полное имя владелицы добавить в Impressum
+  owner: "Lena", // Полное имя владелицы добавить в Impressum
 
   contact: {
     phone: "+49 176 34237368",
     phoneFormatted: "+49 176 34237368",
     phoneHref: "tel:+4917634237368",
-    email: "info@fusspflege-sachsenheim.de", // TODO: Заменить на реальный email
-    emailHref: "mailto:info@fusspflege-sachsenheim.de",
+    email: "info@fusspflege-lena-schneider.de",
+    emailHref: "mailto:info@fusspflege-lena-schneider.de",
   },
 
   address: {
@@ -37,15 +37,15 @@ export const BUSINESS_INFO = {
   },
 
   social: {
-    facebook: "https://facebook.com/fusspflege.sachsenheim", // TODO: Echte Links
-    instagram: "https://instagram.com/fusspflege.sachsenheim",
+    facebook: "https://facebook.com/fusspflege.lena.schneider",
+    instagram: "https://instagram.com/fusspflege.lena.schneider",
     linkedin: "https://linkedin.com", // Optional
   },
 
   seo: {
-    domain: "https://fusspflege-sachsenheim.de", // TODO: Echte Domain
-    title: "Fußpflege Sachsenheim | Medizinische Fußpflege & Podologie in 74343",
-    description: "Professionelle medizinische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung",
+    domain: "https://fusspflege-lena-schneider.de",
+    title: "Fußpflege Lena Schneider | Kosmetische Fußpflege & Pediküre in Sachsenheim",
+    description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung",
   },
 
   legal: {
@@ -60,42 +60,52 @@ export const SERVICES = [
   {
     id: "nagelpilz",
     title: "Nagelpilz-Behandlung",
-    description: "Professionelle Behandlung von Nagelpilz mit modernsten Methoden",
-    price: "ab xx €", // TODO: Echte Preise
+    description: "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
+    price: "60 €",
     duration: "ca. 45-60 Min.",
-    icon: "💊",
+    icon: "🦠",
   },
   {
-    id: "pediküre",
+    id: "smart-pediküre",
     title: "Smart Pediküre",
-    description: "Moderne Pediküre für gesunde und gepflegte Füße",
-    price: "ab xx €",
-    duration: "ca. 45 Min.",
-    icon: "💅",
+    description: "Moderne Form der Fußpflege: Hornhaut wird sanft entfernt, die Nägel werden geformt und die Haut mit Pflegeöl gepflegt",
+    price: "55 €",
+    duration: "ca. 60 Min.",
+    icon: "✨",
   },
   {
-    id: "medizinisch",
-    title: "Medizinische Fußpflege",
-    description: "Professionelle medizinische Fußpflege nach höchsten Standards",
-    price: "ab xx €",
-    duration: "ca. 60 Min.",
-    icon: "🏥",
+    id: "klassische-fußpflege",
+    title: "Klassische Fachfußpflege mit Peeling",
+    description: "Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße",
+    price: "49 €",
+    duration: "ca. 45-60 Min.",
+    icon: "🦶",
+    note: "Aufpreis für Shellac: +9€",
   },
   {
     id: "massage",
     title: "Fußreflexzonenmassage",
-    description: "Entspannende Fußmassage zur Aktivierung der Reflexzonen",
-    price: "ab xx €",
-    duration: "ca. 30-45 Min.",
+    description: "Entspannende Fußmassage zur Aktivierung der Reflexzonen und Selbstheilungskräfte",
+    price: "35 €",
+    duration: "ca. 30 Min.",
     icon: "💆",
   },
   {
     id: "spange",
     title: "B/S Spangentechnik",
-    description: "Nagelkorrektur mit der bewährten B/S Spangentechnik",
-    price: "ab xx €",
+    description: "Nagelkorrektur mit der bewährten B/S Spangentechnik für eingewachsene Fußnägel",
+    price: "29 €",
     duration: "ca. 30-45 Min.",
     icon: "🔧",
+    note: "Ohne Fußpflege",
+  },
+  {
+    id: "shellac-entfernen",
+    title: "Shellac nur entfernen",
+    description: "Professionelle und schonende Entfernung von Shellac-Lack",
+    price: "15 €",
+    duration: "ca. 15-20 Min.",
+    icon: "🧴",
   },
 ] as const;
 

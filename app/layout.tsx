@@ -2,51 +2,52 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Fußpflege Sachsenheim | Medizinische Fußpflege & Podologie in 74343",
-  description: "Professionelle medizinische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368",
+  title: "Fußpflege Lena Schneider | Kosmetische Fußpflege & Pediküre in Sachsenheim",
+  description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368",
   keywords: [
     "Fußpflege Sachsenheim",
-    "Medizinische Fußpflege Sachsenheim",
-    "Podologie Sachsenheim",
+    "Kosmetische Fußpflege Sachsenheim",
+    "Klassische Fußpflege Sachsenheim",
     "Fußpflege 74343",
     "Nagelpilz Behandlung Sachsenheim",
     "B/S Spange Sachsenheim",
     "Fußreflexzonenmassage Sachsenheim",
     "Fußpflege Salon Sachsenheim",
     "Pediküre Sachsenheim",
+    "Smart Pediküre Sachsenheim",
     "Fußpflegerin Sachsenheim",
-    "Podologin Sachsenheim",
     "Fußpflege Ludwigsburg Kreis",
     "Fußgesundheit Sachsenheim",
     "Nagelkorrektur Sachsenheim",
     "Hornhautentfernung Sachsenheim"
   ],
-  authors: [{ name: "Fußpflege Sachsenheim - Elena" }],
+  authors: [{ name: "Fußpflege Sachsenheim - Lena" }],
   category: "Health & Wellness",
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://fusspflege-sachsenheim.de",
-    siteName: "Fußpflege Sachsenheim",
-    title: "Fußpflege Sachsenheim - Medizinische Fußpflege & Podologie",
-    description: "Professionelle medizinische Fußpflege in Sachsenheim. Nagelpilzbehandlung, B/S Spange, Fußreflexzonenmassage. Jetzt Termin vereinbaren!",
+    url: "https://fusspflege-lena-schneider.de",
+    siteName: "Fußpflege Lena Schneider",
+    title: "Fußpflege Lena Schneider - Kosmetische Fußpflege & Pediküre",
+    description: "Professionelle kosmetische Fußpflege in Sachsenheim. Nagelpilzbehandlung, B/S Spange, Fußreflexzonenmassage. Jetzt Termin vereinbaren!",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Fußpflege Sachsenheim - Professionelle medizinische Fußpflege",
+        alt: "Fußpflege Lena Schneider - Professionelle kosmetische Fußpflege",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fußpflege Sachsenheim - Medizinische Fußpflege",
-    description: "Professionelle medizinische Fußpflege in Sachsenheim ✓ Termine nach Vereinbarung",
+    title: "Fußpflege Lena Schneider - Kosmetische Fußpflege",
+    description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Termine nach Vereinbarung",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://fusspflege-sachsenheim.de",
+    canonical: "https://fusspflege-lena-schneider.de",
   },
   verification: {
     google: "google-site-verification-code", // TODO: Nach Google Search Console Setup eintragen
@@ -99,7 +100,16 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body className={inter.className}>
-        {children}
+        {/* Skip to main content link for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg focus:shadow-lg"
+        >
+          Zum Hauptinhalt springen
+        </a>
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
       </body>
     </html>
   );

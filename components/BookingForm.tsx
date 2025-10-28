@@ -103,9 +103,11 @@ export default function BookingForm() {
           {submitStatus === 'success' && (
             <div
               id="success-message"
+              role="status"
+              aria-live="polite"
               className="mb-8 bg-green-50 border-l-4 border-green-500 rounded-lg p-6 flex items-start space-x-3 animate-in slide-in-from-top"
             >
-              <CheckCircle2 className="text-green-500 flex-shrink-0 mt-0.5" size={24} />
+              <CheckCircle2 className="text-green-500 flex-shrink-0 mt-0.5" size={24} aria-hidden="true" />
               <div>
                 <h3 className="text-green-900 font-bold mb-1">
                   Vielen Dank für Ihre Anfrage!
@@ -119,8 +121,12 @@ export default function BookingForm() {
 
           {/* Error Message */}
           {submitStatus === 'error' && (
-            <div className="mb-8 bg-red-50 border-l-4 border-red-500 rounded-lg p-6 flex items-start space-x-3">
-              <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5" size={24} />
+            <div
+              role="alert"
+              aria-live="assertive"
+              className="mb-8 bg-red-50 border-l-4 border-red-500 rounded-lg p-6 flex items-start space-x-3"
+            >
+              <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5" size={24} aria-hidden="true" />
               <div>
                 <h3 className="text-red-900 font-bold mb-1">Fehler beim Senden</h3>
                 <p className="text-red-700">
@@ -147,11 +153,14 @@ export default function BookingForm() {
                     {...register('vorname', { required: 'Vorname ist erforderlich' })}
                     type="text"
                     id="vorname"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    disabled={isSubmitting}
+                    aria-invalid={!!errors.vorname}
+                    aria-describedby={errors.vorname ? 'vorname-error' : undefined}
+                    className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     placeholder="Max"
                   />
                   {errors.vorname && (
-                    <p className="mt-1 text-sm text-red-600">{errors.vorname.message}</p>
+                    <p id="vorname-error" role="alert" className="mt-1 text-sm text-red-600">{errors.vorname.message}</p>
                   )}
                 </div>
 
@@ -163,11 +172,14 @@ export default function BookingForm() {
                     {...register('nachname', { required: 'Nachname ist erforderlich' })}
                     type="text"
                     id="nachname"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    disabled={isSubmitting}
+                    aria-invalid={!!errors.nachname}
+                    aria-describedby={errors.nachname ? 'nachname-error' : undefined}
+                    className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     placeholder="Mustermann"
                   />
                   {errors.nachname && (
-                    <p className="mt-1 text-sm text-red-600">{errors.nachname.message}</p>
+                    <p id="nachname-error" role="alert" className="mt-1 text-sm text-red-600">{errors.nachname.message}</p>
                   )}
                 </div>
               </div>
@@ -252,14 +264,25 @@ export default function BookingForm() {
                     Wunschtermin *
                   </label>
                   <input
-                    {...register('wunschtermin', { required: 'Wunschtermin ist erforderlich' })}
+                    {...register('wunschtermin', {
+                      required: 'Wunschtermin ist erforderlich',
+                      validate: (value) => {
+                        const selectedDate = new Date(value);
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        return selectedDate >= today || 'Datum darf nicht in der Vergangenheit liegen';
+                      }
+                    })}
                     type="date"
                     id="wunschtermin"
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    disabled={isSubmitting}
+                    aria-invalid={!!errors.wunschtermin}
+                    aria-describedby={errors.wunschtermin ? 'wunschtermin-error' : undefined}
+                    className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   />
                   {errors.wunschtermin && (
-                    <p className="mt-1 text-sm text-red-600">{errors.wunschtermin.message}</p>
+                    <p id="wunschtermin-error" role="alert" className="mt-1 text-sm text-red-600">{errors.wunschtermin.message}</p>
                   )}
                 </div>
 

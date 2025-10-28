@@ -37,7 +37,7 @@ export default function ImpressumPage() {
                 Angaben gemäß § 5 TMG
               </h2>
               <div className="space-y-2 text-gray-700">
-                <p className="font-semibold">Fußpflege Sachsenheim - Inhaberin: Elena [Nachname]</p>
+                <p className="font-semibold">Fußpflege Sachsenheim - Inhaberin: Lena [Nachname]</p>
                 <p>Brunnenstraße 25</p>
                 <p>74343 Sachsenheim</p>
                 <p className="text-sm text-gray-600 mt-2 italic">

@@ -1,64 +1,102 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Helper function to sanitize string inputs
+function sanitizeString(input: string): string {
+  return input.trim().replace(/[<>]/g, '');
+}
+
+// Validate email format
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Check origin for basic CSRF protection
+    const origin = request.headers.get('origin');
+    const allowedOrigins = [
+      'https://fusspflege-lena-schneider.de',
+      'http://localhost:3000',
+      'http://localhost:3001'
+    ];
+
+    if (origin && !allowedOrigins.includes(origin)) {
+      return NextResponse.json(
+        { message: 'Forbidden - Invalid origin' },
+        { status: 403 }
+      );
+    }
+
     const data = await request.json();
 
-    const AIRTABLE_API_KEY = process.env.NEXT_PUBLIC_AIRTABLE_API_KEY;
-    const AIRTABLE_BASE_ID = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID;
-    const AIRTABLE_TABLE_NAME = process.env.NEXT_PUBLIC_AIRTABLE_TABLE_NAME || 'Terminanfragen';
+    // Validate and sanitize inputs
+    const sanitizedData = {
+      vorname: sanitizeString(data.vorname || ''),
+      nachname: sanitizeString(data.nachname || ''),
+      telefon: sanitizeString(data.telefon || ''),
+      email: sanitizeString(data.email || ''),
+      leistung: sanitizeString(data.leistung || ''),
+      wunschtermin: data.wunschtermin || '',
+      wunschuhrzeit: sanitizeString(data.wunschuhrzeit || ''),
+      nachricht: sanitizeString(data.nachricht || ''),
+    };
 
-    if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) {
-      console.error('Airtable credentials are not configured');
-      // For now, just log the data and return success
-      console.log('Booking data:', data);
+    // Validate required fields
+    if (!sanitizedData.vorname || !sanitizedData.nachname || !sanitizedData.email) {
       return NextResponse.json(
-        { message: 'Anfrage empfangen (Airtable noch nicht konfiguriert)', data },
+        { message: 'Pflichtfelder fehlen: Vorname, Nachname und E-Mail sind erforderlich' },
+        { status: 400 }
+      );
+    }
+
+    // Validate email
+    if (!isValidEmail(sanitizedData.email)) {
+      return NextResponse.json(
+        { message: 'Ungültige E-Mail-Adresse' },
+        { status: 400 }
+      );
+    }
+
+    // Get n8n webhook URL from environment
+    const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
+
+    if (!N8N_WEBHOOK_URL) {
+      console.error('n8n webhook URL is not configured');
+      console.log('Booking data (n8n not configured):', sanitizedData);
+      return NextResponse.json(
+        { message: 'Anfrage empfangen (Webhook noch nicht konfiguriert)' },
         { status: 200 }
       );
     }
 
-    // Send to Airtable
-    const airtableResponse = await fetch(
-      `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fields: {
-            Vorname: data.vorname,
-            Nachname: data.nachname,
-            Telefonnummer: data.telefon,
-            'E-Mail': data.email,
-            'Gewünschte Leistung': data.leistung,
-            Wunschtermin: data.wunschtermin,
-            Wunschuhrzeit: data.wunschuhrzeit,
-            Nachricht: data.nachricht || '',
-            Status: 'Neu',
-          },
-        }),
-      }
-    );
+    // Send to n8n webhook
+    const webhookResponse = await fetch(N8N_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...sanitizedData,
+        submittedAt: new Date().toISOString(),
+        source: 'website',
+      }),
+    });
 
-    if (!airtableResponse.ok) {
-      const errorText = await airtableResponse.text();
-      console.error('Airtable error:', errorText);
-      throw new Error('Failed to save to Airtable');
+    if (!webhookResponse.ok) {
+      const errorText = await webhookResponse.text();
+      console.error('n8n webhook error:', errorText);
+      throw new Error('Failed to send to n8n webhook');
     }
 
-    const result = await airtableResponse.json();
-
     return NextResponse.json(
-      { message: 'Terminanfrage erfolgreich gesendet', id: result.id },
+      { message: 'Terminanfrage erfolgreich gesendet' },
       { status: 200 }
     );
   } catch (error) {
     console.error('Booking error:', error);
     return NextResponse.json(
-      { message: 'Fehler beim Senden der Anfrage', error: String(error) },
+      { message: 'Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.' },
       { status: 500 }
     );
   }

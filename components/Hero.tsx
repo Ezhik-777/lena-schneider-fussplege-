@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   const highlights = [
-    'Professionelle medizinische Fußpflege',
+    'Professionelle kosmetische Fußpflege',
     'Angenehme Salon-Atmosphäre',
     'Flexible Terminvereinbarung',
   ];
@@ -29,7 +29,7 @@ export default function Hero() {
                 <span className="text-primary-600">in Sachsenheim</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Medizinische Fußpflege und Behandlung in angenehmem Ambiente.
+                Kosmetische Fußpflege und Behandlung in angenehmem Ambiente.
                 Professionell, hygienisch, entspannend.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function Hero() {
             <div className="pt-6 flex items-center space-x-4 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <div className="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">✓</span>
+                  <span className="text-2xl" aria-hidden="true">✓</span>
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Zertifiziert</div>
@@ -116,7 +116,7 @@ export default function Hero() {
             <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 max-w-xs border border-gray-100 backdrop-blur-sm">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-accent-100 rounded-full flex items-center justify-center shadow-md">
-                  <span className="text-2xl">🏆</span>
+                  <span className="text-2xl" aria-hidden="true">🏆</span>
                 </div>
                 <div>
                   <div className="font-bold text-gray-900">100% Zufriedenheit</div>

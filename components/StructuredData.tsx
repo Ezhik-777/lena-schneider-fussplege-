@@ -2,12 +2,12 @@ export default function StructuredData() {
   const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
-    "@id": "https://fusspflege-sachsenheim.de",
-    "name": "Fußpflege Sachsenheim",
-    "description": "Professionelle medizinische Fußpflege und Podologie in Sachsenheim",
-    "url": "https://fusspflege-sachsenheim.de",
+    "@id": "https://fusspflege-lena-schneider.de",
+    "name": "Fußpflege Lena Schneider",
+    "description": "Professionelle kosmetische Fußpflege und Pediküre in Sachsenheim",
+    "url": "https://fusspflege-lena-schneider.de",
     "telephone": "+4917634237368",
-    "email": "info@fusspflege-sachsenheim.de",
+    "email": "info@fusspflege-lena-schneider.de",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Brunnenstraße 25",
@@ -36,10 +36,10 @@ export default function StructuredData() {
       }
     ],
     "priceRange": "€€",
-    "image": "https://fusspflege-sachsenheim.de/salon-image.jpg",
+    "image": "https://fusspflege-lena-schneider.de/salon-image.jpg",
     "sameAs": [
-      "https://www.facebook.com/fusspflege.sachsenheim",
-      "https://www.instagram.com/fusspflege.sachsenheim"
+      "https://www.facebook.com/fusspflege.lena.schneider",
+      "https://www.instagram.com/fusspflege.lena.schneider"
     ],
     "areaServed": {
       "@type": "GeoCircle",
@@ -58,8 +58,8 @@ export default function StructuredData() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Medizinische Fußpflege",
-            "description": "Professionelle medizinische Fußpflege für gesunde Füße"
+            "name": "Klassische Fachfußpflege mit Peeling",
+            "description": "Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße"
           }
         },
         {
@@ -101,9 +101,9 @@ export default function StructuredData() {
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Fußpflege Sachsenheim",
-    "url": "https://fusspflege-sachsenheim.de",
-    "logo": "https://fusspflege-sachsenheim.de/logo.png",
+    "name": "Fußpflege Lena Schneider",
+    "url": "https://fusspflege-lena-schneider.de",
+    "logo": "https://fusspflege-lena-schneider.de/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+4917634237368",
@@ -121,7 +121,7 @@ export default function StructuredData() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://fusspflege-sachsenheim.de"
+        "item": "https://fusspflege-lena-schneider.de"
       }
     ]
   };

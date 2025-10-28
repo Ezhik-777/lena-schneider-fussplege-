@@ -5,63 +5,79 @@ import { Clock, Euro } from 'lucide-react';
 export default function Services() {
   const services = [
     {
-      icon: '🦶',
+      icon: '🦠',
       title: 'Nagelpilz-Behandlung',
-      description: 'Professionelle Behandlung von Nagelpilz mit modernen Methoden und nachhaltigen Ergebnissen.',
+      description: 'Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden.',
       duration: '45-60 Min.',
-      price: 'ab xx €',
+      price: '60 €',
       features: [
-        'Gründliche Diagnose',
-        'Fachgerechte Behandlung',
-        'Beratung zur Nachsorge',
+        'Schmerzfreie Behandlung',
+        'Ohne Chemie',
+        'Effektive Ergebnisse nach 6 Behandlungen',
       ],
     },
     {
       icon: '✨',
       title: 'Smart Pediküre',
-      description: 'Umfassende kosmetische und medizinische Fußpflege für gesunde und schöne Füße.',
+      description: 'Moderne Form der Fußpflege: Hornhaut wird sanft entfernt, die Nägel werden geformt und die Haut mit Pflegeöl gepflegt. Das sorgt für glatte, gepflegte Füße und ein langanhaltendes Frischegefühl.',
       duration: '60 Min.',
-      price: 'ab xx €',
+      price: '55 €',
       features: [
-        'Nagelpflege und -schnitt',
-        'Hornhautentfernung',
-        'Fußmassage',
+        'Sanfte Hornhautentfernung',
+        'Nägel formen',
+        'Hautpflege mit Pflegeöl',
+        'Langanhaltendes Frischegefühl',
       ],
     },
     {
-      icon: '⚕️',
-      title: 'Medizinische Fußpflege',
-      description: 'Präventive und therapeutische Fußpflege nach medizinischen Standards.',
+      icon: '🦶',
+      title: 'Klassische Fachfußpflege mit Peeling',
+      description: 'Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße.',
       duration: '45-60 Min.',
-      price: 'ab xx €',
+      price: '49 €',
       features: [
-        'Behandlung von Hühneraugen',
-        'Eingewachsene Nägel',
-        'Diabetischer Fuß',
+        'Nägel schneiden/kürzen',
+        'Nagelhautentfernung',
+        'Hornhautentfernung',
+        'Pflege der Nägel und Füße',
+        'Aufpreis für Shellac: +9€',
       ],
     },
     {
       icon: '💆',
       title: 'Fußreflexzonenmassage',
-      description: 'Entspannende und heilende Massage zur Aktivierung der Selbstheilungskräfte.',
-      duration: '30-45 Min.',
-      price: 'ab xx €',
+      description: 'Entspannende und heilende Massage zur Aktivierung der Selbstheilungskräfte und Stressabbau.',
+      duration: '30 Min.',
+      price: '35 €',
       features: [
         'Ganzkörperliche Wirkung',
-        'Stressabbau',
+        'Stressabbau und Entspannung',
         'Verbesserung des Wohlbefindens',
       ],
     },
     {
       icon: '🔧',
       title: 'B/S Spangentechnik',
-      description: 'Innovative Korrekturspange für eingewachsene und deformierte Nägel - schmerzfrei und effektiv.',
-      duration: '60-75 Min.',
-      price: 'ab xx €',
+      description: 'Innovative Korrekturspange für eingewachsene Fußnägel - schmerzfrei und effektiv.',
+      duration: '30-45 Min.',
+      price: '29 €',
+      note: 'Ohne Fußpflege',
       features: [
+        'Für eingewachsene Fußnägel',
         'Schmerzfreie Korrektur',
         'Langanhaltende Ergebnisse',
-        'Regelmäßige Kontrolle',
+      ],
+    },
+    {
+      icon: '🧴',
+      title: 'Shellac nur entfernen',
+      description: 'Professionelle und schonende Entfernung von Shellac-Lack.',
+      duration: '15-20 Min.',
+      price: '15 €',
+      features: [
+        'Schonende Entfernung',
+        'Schnell und effektiv',
+        'Ohne Beschädigung der Nägel',
       ],
     },
   ];
@@ -90,7 +106,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col"
             >
               {/* Card Header */}
               <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-6 text-center">
@@ -101,13 +117,20 @@ export default function Services() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 space-y-4">
+              <div className="p-6 space-y-4 flex flex-col flex-grow">
                 <p className="text-gray-600 leading-relaxed min-h-[60px]">
                   {service.description}
                 </p>
 
+                {/* Note */}
+                {service.note && (
+                  <p className="text-sm text-gray-500 italic">
+                    {service.note}
+                  </p>
+                )}
+
                 {/* Features */}
-                <ul className="space-y-2">
+                <ul className="space-y-2 flex-grow">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start space-x-2 text-sm text-gray-700">
                       <span className="text-accent-500 mt-0.5">✓</span>
@@ -117,7 +140,7 @@ export default function Services() {
                 </ul>
 
                 {/* Divider */}
-                <div className="border-t border-gray-200 pt-4 mt-4">
+                <div className="border-t border-gray-200 pt-4 mt-auto">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 text-sm text-gray-600">
                       <Clock size={16} />
@@ -132,6 +155,22 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* New Customer Discount Banner */}
+        <div className="mt-8 bg-gradient-to-br from-accent-50 to-primary-50 rounded-2xl p-8 border-2 border-accent-200">
+          <div className="text-center max-w-2xl mx-auto">
+            <div className="text-4xl mb-4">🎉</div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              Neukunden-Rabatt
+            </h3>
+            <p className="text-3xl font-bold text-primary-600 mb-2">
+              10% Rabatt
+            </p>
+            <p className="text-gray-700">
+              auf Ihre erste Behandlung
+            </p>
+          </div>
         </div>
 
         {/* CTA */}

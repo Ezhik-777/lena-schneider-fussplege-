@@ -8,7 +8,7 @@ export default function About() {
     {
       icon: Award,
       title: 'Mehrfach Zertifiziert',
-      description: 'Professionelle Zertifizierungen in medizinischer Fußpflege',
+      description: 'Professionelle Zertifizierungen in kosmetischer Fußpflege',
     },
     {
       icon: Users,
@@ -44,7 +44,7 @@ export default function About() {
                     <div className="w-full h-full rounded-[1.7rem] overflow-hidden relative shadow-lg">
                       <Image
                         src="/1.webp"
-                        alt="Elena - Professionelle Fußpflegerin in Sachsenheim"
+                        alt="Lena - Professionelle Fußpflegerin in Sachsenheim"
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -72,7 +72,7 @@ export default function About() {
                 Willkommen bei <span className="text-primary-600">Fußpflege Sachsenheim</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Herzlich willkommen in meinem Salon in Sachsenheim! Ich bin Elena und
+                Herzlich willkommen in meinem Salon in Sachsenheim! Ich bin Lena und
                 mit mehreren professionellen Zertifizierungen biete ich Ihnen qualifizierte
                 Fußpflegedienstleistungen in entspannter Atmosphäre.
               </p>

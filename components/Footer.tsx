@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -18,41 +18,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-white text-xl font-bold mb-4">
-              Fußpflege Sachsenheim
+              Fußpflege Lena Schneider
             </h3>
             <p className="text-sm leading-relaxed">
-              Professionelle medizinische Fußpflege in Sachsenheim.
+              Professionelle kosmetische Fußpflege in Sachsenheim.
               Für gesunde und gepflegte Füße in entspannter Salon-Atmosphäre.
             </p>
-            <div className="flex space-x-4 pt-2">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -117,7 +88,7 @@ export default function Footer() {
                 Smart Pediküre
               </li>
               <li className="hover:text-primary-400 transition-colors">
-                Medizinische Fußpflege
+                Klassische Fachfußpflege
               </li>
               <li className="hover:text-primary-400 transition-colors">
                 Fußreflexzonenmassage
@@ -143,11 +114,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@beispiel.de"
+                  href="mailto:info@fusspflege-lena-schneider.de"
                   className="flex items-start space-x-3 hover:text-primary-400 transition-colors text-sm"
                 >
                   <Mail size={18} className="mt-0.5 flex-shrink-0" />
-                  <span>info@beispiel.de</span>
+                  <span>info@fusspflege-lena-schneider.de</span>
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">
@@ -167,7 +138,7 @@ export default function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-400">
-              © {currentYear} Fußpflege Sachsenheim. Alle Rechte vorbehalten.
+              © {currentYear} Fußpflege Lena Schneider. Alle Rechte vorbehalten.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <Link
