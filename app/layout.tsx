@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fusspflege-lena-schneider.de'),
   title: "Fußpflege Lena Schneider | Kosmetische Fußpflege & Pediküre in Sachsenheim",
   description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368",
   keywords: [
@@ -99,7 +97,7 @@ export default function RootLayout({
         {/* Structured Data */}
         <StructuredData />
       </head>
-      <body className={inter.className}>
+      <body className="font-sans">
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
