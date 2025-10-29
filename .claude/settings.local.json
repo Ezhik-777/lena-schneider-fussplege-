@@ -7,7 +7,20 @@
       "Bash(git remote set-url origin git@github.com:Ezhik-777/lena-schneider-fussplege-.git)",
       "Bash(ssh -T git@github.com)",
       "Bash(git push -u origin main)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate booking system and UI improvements\n\n- Migrate booking system from Airtable to n8n webhook\n- Add error boundary for better error handling\n- Improve mobile responsiveness and layout\n- Add coming soon page placeholder\n- Update structured data and SEO optimization\n- Add scroll utilities and UI enhancements\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(mkdir -p /Users/evgenij/Desktop/dev/WEB/lena-schneider/app/main-site)",
+      "Bash(mv /Users/evgenij/Desktop/dev/WEB/lena-schneider/app/page.tsx /Users/evgenij/Desktop/dev/WEB/lena-schneider/app/main-site/page.tsx)",
+      "Bash(mv /Users/evgenij/Desktop/dev/WEB/lena-schneider/app/coming-soon/page.tsx /Users/evgenij/Desktop/dev/WEB/lena-schneider/app/page.tsx)",
+      "Bash(rmdir /Users/evgenij/Desktop/dev/WEB/lena-schneider/app/coming-soon)",
+      "Bash(git add app/)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nSet coming soon page as homepage\n\n- Move main site to /main-site route\n- Set coming soon page as homepage (/)\n- Keep full site available at /main-site for future launch\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git add components/Services.tsx)",
+      "Bash(git commit -m \"Replace ''medizinischer Behandlung'' with neutral wording\")",
+      "Bash(git remote set-url origin git@github.com:Ezhik-777/fusspflege-lena-schneider.git)",
+      "Bash(npm i @vercel/speed-insights)",
+      "Bash(git commit -m \"Add Vercel Speed Insights\")"
     ],
     "deny": [],
     "ask": []
