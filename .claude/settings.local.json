@@ -42,7 +42,8 @@
       "Bash(SEO_GUIDE.md )",
       "Bash(SEO_SUMMARY.md)",
       "Bash(pkill -f \"next dev\")",
-      "Bash(git commit -m \"$(cat <<''EOF''\nRevert to blue color scheme and fix navigation\n\n- Reverted primary color from purple to blue (#2563eb)\n- Reverted accent color to cyan (#0891b2)\n- Kept all animations (fade-in, slide-up, float, glow)\n- Verified navigation menu IDs match component sections\n- Cleaned .next cache and restarted dev server\n- Removed old documentation files\n- Added 404 page, coming soon page\n- Updated form validation (only Vorname and Telefon required)\n- Updated legal pages (Impressum/Datenschutz) with Elena Schneider details\n- Fixed SEO (robots.txt, sitemap.xml)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit -m \"$(cat <<''EOF''\nRevert to blue color scheme and fix navigation\n\n- Reverted primary color from purple to blue (#2563eb)\n- Reverted accent color to cyan (#0891b2)\n- Kept all animations (fade-in, slide-up, float, glow)\n- Verified navigation menu IDs match component sections\n- Cleaned .next cache and restarted dev server\n- Removed old documentation files\n- Added 404 page, coming soon page\n- Updated form validation (only Vorname and Telefon required)\n- Updated legal pages (Impressum/Datenschutz) with Elena Schneider details\n- Fixed SEO (robots.txt, sitemap.xml)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"Add foot emoji favicon\")"
     ],
     "deny": [],
     "ask": []
