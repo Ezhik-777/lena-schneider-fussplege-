@@ -37,12 +37,9 @@ export default function ImpressumPage() {
                 Angaben gemäß § 5 TMG
               </h2>
               <div className="space-y-2 text-gray-700">
-                <p className="font-semibold">Fußpflege Sachsenheim - Inhaberin: Lena [Nachname]</p>
+                <p className="font-semibold">Fußpflege Sachsenheim - Inhaberin: Elena Schneider</p>
                 <p>Brunnenstraße 25</p>
                 <p>74343 Sachsenheim</p>
-                <p className="text-sm text-gray-600 mt-2 italic">
-                  (Bitte vollständigen Namen eintragen)
-                </p>
               </div>
             </section>
 
@@ -56,10 +53,10 @@ export default function ImpressumPage() {
                 <p>
                   <strong>E-Mail:</strong>{' '}
                   <a
-                    href="mailto:info@beispiel.de"
+                    href="mailto:info@fusspflege-lena-schneider.de"
                     className="text-primary-600 hover:text-primary-700 underline"
                   >
-                    info@beispiel.de
+                    info@fusspflege-lena-schneider.de
                   </a>
                 </p>
               </div>
@@ -74,10 +71,7 @@ export default function ImpressumPage() {
                 <p>
                   Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:
                 </p>
-                <p className="font-semibold">[USt-IdNr.]</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  (Falls zutreffend - ansonsten diesen Abschnitt entfernen)
-                </p>
+                <p className="font-semibold">[USt-IdNr. hier eintragen]</p>
               </div>
             </section>
 
@@ -87,49 +81,7 @@ export default function ImpressumPage() {
                 Berufsbezeichnung
               </h2>
               <div className="text-gray-700">
-                <p>Medizinische Fußpflegerin (Podologin)</p>
-                <p>Verliehen in: Deutschland</p>
-              </div>
-            </section>
-
-            {/* Zuständige Aufsichtsbehörde */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Zuständige Aufsichtsbehörde
-              </h2>
-              <div className="text-gray-700">
-                <p>[Name der zuständigen Behörde]</p>
-                <p>[Adresse der Behörde]</p>
-                <p>
-                  Website:{' '}
-                  <a
-                    href="#"
-                    className="text-primary-600 hover:text-primary-700 underline"
-                  >
-                    [Link zur Behörde]
-                  </a>
-                </p>
-              </div>
-            </section>
-
-            {/* Berufsrechtliche Regelungen */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Berufsrechtliche Regelungen
-              </h2>
-              <div className="text-gray-700 space-y-2">
-                <p>Podologengesetz (PodG)</p>
-                <p>
-                  Einsehbar unter:{' '}
-                  <a
-                    href="https://www.gesetze-im-internet.de/podg/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-600 hover:text-primary-700 underline"
-                  >
-                    www.gesetze-im-internet.de/podg
-                  </a>
-                </p>
+                <p>Kosmetische Fußpflege</p>
               </div>
             </section>
 

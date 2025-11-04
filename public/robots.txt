@@ -25,4 +25,4 @@ Disallow: /_next/
 Disallow: /admin/
 
 # Sitemap Location
-Sitemap: https://fusspflege-sachsenheim.de/sitemap.xml
+Sitemap: https://fusspflege-lena-schneider.de/sitemap.xml

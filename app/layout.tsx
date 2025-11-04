@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fusspflege-lena-schneider.de'),
   title: "Fußpflege Lena Schneider | Kosmetische Fußpflege & Pediküre in Sachsenheim",
   description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368",
   keywords: [

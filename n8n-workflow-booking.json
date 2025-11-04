@@ -1,0 +1,169 @@
+{
+  "name": "Fußpflege Booking Form Handler",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "booking",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 300],
+      "webhookId": "booking-form"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Обработка и форматирование данных из формы\nconst bookingData = $input.item.json.body;\n\n// Форматирование даты\nconst wunschtermin = new Date(bookingData.wunschtermin);\nconst formattedDate = wunschtermin.toLocaleDateString('de-DE', {\n  weekday: 'long',\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric'\n});\n\n// Создание красиво отформатированного сообщения\nconst emailBody = `\n<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n    .container { max-width: 600px; margin: 0 auto; padding: 20px; }\n    .header { background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }\n    .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }\n    .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }\n    .label { font-weight: bold; color: #8B5CF6; display: inline-block; min-width: 150px; }\n    .value { color: #333; }\n    h1 { margin: 0; font-size: 24px; }\n    h2 { color: #8B5CF6; border-bottom: 2px solid #8B5CF6; padding-bottom: 10px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>🦶 Neue Terminanfrage</h1>\n      <p style=\"margin: 5px 0 0 0; opacity: 0.9;\">Fußpflege Lena Schneider</p>\n    </div>\n    <div class=\"content\">\n      <div class=\"section\">\n        <h2>👤 Persönliche Daten</h2>\n        <p><span class=\"label\">Name:</span> <span class=\"value\">${bookingData.vorname} ${bookingData.nachname}</span></p>\n        <p><span class=\"label\">Telefon:</span> <span class=\"value\"><a href=\"tel:${bookingData.telefon}\">${bookingData.telefon}</a></span></p>\n        <p><span class=\"label\">E-Mail:</span> <span class=\"value\"><a href=\"mailto:${bookingData.email}\">${bookingData.email}</a></span></p>\n      </div>\n      \n      <div class=\"section\">\n        <h2>📅 Termindetails</h2>\n        <p><span class=\"label\">Gewünschte Leistung:</span> <span class=\"value\">${bookingData.leistung}</span></p>\n        <p><span class=\"label\">Wunschtermin:</span> <span class=\"value\">${formattedDate}</span></p>\n        <p><span class=\"label\">Wunschuhrzeit:</span> <span class=\"value\">${bookingData.wunschuhrzeit}</span></p>\n      </div>\n      \n      ${bookingData.nachricht ? `\n      <div class=\"section\">\n        <h2>💬 Nachricht</h2>\n        <p style=\"background: #f3f4f6; padding: 15px; border-radius: 5px; border-left: 4px solid #8B5CF6;\">\n          ${bookingData.nachricht}\n        </p>\n      </div>\n      ` : ''}\n      \n      <div class=\"section\">\n        <h2>ℹ️ Zusätzliche Informationen</h2>\n        <p><span class=\"label\">Eingegangen am:</span> <span class=\"value\">${new Date(bookingData.submittedAt).toLocaleString('de-DE')}</span></p>\n        <p><span class=\"label\">Quelle:</span> <span class=\"value\">${bookingData.source}</span></p>\n      </div>\n      \n      <div style=\"text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;\">\n        <p style=\"color: #6b7280; font-size: 14px;\">Diese E-Mail wurde automatisch über das Buchungsformular auf der Website generiert.</p>\n      </div>\n    </div>\n  </div>\n</body>\n</html>\n`;\n\nreturn {\n  json: {\n    ...bookingData,\n    formattedDate,\n    emailBody,\n    emailSubject: `Neue Terminanfrage: ${bookingData.vorname} ${bookingData.nachname} - ${formattedDate}`,\n    // Текстовая версия для email\n    emailBodyText: `\nNeue Terminanfrage für Fußpflege Lena Schneider\n\n=== PERSÖNLICHE DATEN ===\nName: ${bookingData.vorname} ${bookingData.nachname}\nTelefon: ${bookingData.telefon}\nE-Mail: ${bookingData.email}\n\n=== TERMINDETAILS ===\nGewünschte Leistung: ${bookingData.leistung}\nWunschtermin: ${formattedDate}\nWunschuhrzeit: ${bookingData.wunschuhrzeit}\n\n${bookingData.nachricht ? `=== NACHRICHT ===\\n${bookingData.nachricht}\\n\\n` : ''}\n=== ZUSÄTZLICHE INFORMATIONEN ===\nEingegangen am: ${new Date(bookingData.submittedAt).toLocaleString('de-DE')}\nQuelle: ${bookingData.source}\n    `\n  }\n};"
+      },
+      "id": "code-node",
+      "name": "Format Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "noreply@fusspflege-lena-schneider.de",
+        "toEmail": "=info@fusspflege-lena-schneider.de",
+        "subject": "={{ $json.emailSubject }}",
+        "emailFormat": "html",
+        "html": "={{ $json.emailBody }}",
+        "text": "={{ $json.emailBodyText }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "email-node",
+      "name": "Send Email Notification",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [650, 200],
+      "credentials": {
+        "smtp": {
+          "id": "1",
+          "name": "SMTP Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"message\": \"Terminanfrage erfolgreich empfangen\" } }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "id": "response-node",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "Booking Requests"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Datum": "={{ $json.submittedAt }}",
+            "Vorname": "={{ $json.vorname }}",
+            "Nachname": "={{ $json.nachname }}",
+            "Telefon": "={{ $json.telefon }}",
+            "E-Mail": "={{ $json.email }}",
+            "Leistung": "={{ $json.leistung }}",
+            "Wunschtermin": "={{ $json.wunschtermin }}",
+            "Wunschuhrzeit": "={{ $json.wunschuhrzeit }}",
+            "Nachricht": "={{ $json.nachricht }}",
+            "Status": "Neu"
+          }
+        },
+        "options": {}
+      },
+      "id": "sheets-node",
+      "name": "Save to Google Sheets (Optional)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [650, 400],
+      "disabled": true,
+      "notes": "Aktiviere diesen Node und konfiguriere dein Google Sheet, um Anfragen zu speichern"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Data": {
+      "main": [
+        [
+          {
+            "node": "Send Email Notification",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save to Google Sheets (Optional)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email Notification": {
+      "main": [
+        []
+      ]
+    },
+    "Save to Google Sheets (Optional)": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "instanceId": "self-hosted"
+  },
+  "id": "booking-workflow",
+  "tags": []
+}

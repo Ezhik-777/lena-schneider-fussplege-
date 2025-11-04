@@ -166,21 +166,16 @@ export default function BookingForm() {
 
                 <div>
                   <label htmlFor="nachname" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nachname *
+                    Nachname
                   </label>
                   <input
-                    {...register('nachname', { required: 'Nachname ist erforderlich' })}
+                    {...register('nachname')}
                     type="text"
                     id="nachname"
                     disabled={isSubmitting}
-                    aria-invalid={!!errors.nachname}
-                    aria-describedby={errors.nachname ? 'nachname-error' : undefined}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     placeholder="Mustermann"
                   />
-                  {errors.nachname && (
-                    <p id="nachname-error" role="alert" className="mt-1 text-sm text-red-600">{errors.nachname.message}</p>
-                  )}
                 </div>
               </div>
 
@@ -209,11 +204,10 @@ export default function BookingForm() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    E-Mail *
+                    E-Mail
                   </label>
                   <input
                     {...register('email', {
-                      required: 'E-Mail ist erforderlich',
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                         message: 'Ungültige E-Mail-Adresse',
@@ -239,10 +233,10 @@ export default function BookingForm() {
 
               <div>
                 <label htmlFor="leistung" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Gewünschte Leistung *
+                  Gewünschte Leistung
                 </label>
                 <select
-                  {...register('leistung', { required: 'Bitte wählen Sie eine Leistung' })}
+                  {...register('leistung')}
                   id="leistung"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 >
@@ -253,20 +247,17 @@ export default function BookingForm() {
                     </option>
                   ))}
                 </select>
-                {errors.leistung && (
-                  <p className="mt-1 text-sm text-red-600">{errors.leistung.message}</p>
-                )}
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="wunschtermin" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Wunschtermin *
+                    Wunschtermin
                   </label>
                   <input
                     {...register('wunschtermin', {
-                      required: 'Wunschtermin ist erforderlich',
                       validate: (value) => {
+                        if (!value) return true; // Optional field
                         const selectedDate = new Date(value);
                         const today = new Date();
                         today.setHours(0, 0, 0, 0);
@@ -277,21 +268,19 @@ export default function BookingForm() {
                     id="wunschtermin"
                     min={new Date().toISOString().split('T')[0]}
                     disabled={isSubmitting}
-                    aria-invalid={!!errors.wunschtermin}
-                    aria-describedby={errors.wunschtermin ? 'wunschtermin-error' : undefined}
                     className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   />
                   {errors.wunschtermin && (
-                    <p id="wunschtermin-error" role="alert" className="mt-1 text-sm text-red-600">{errors.wunschtermin.message}</p>
+                    <p className="mt-1 text-sm text-red-600">{errors.wunschtermin.message}</p>
                   )}
                 </div>
 
                 <div>
                   <label htmlFor="wunschuhrzeit" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Wunschuhrzeit *
+                    Wunschuhrzeit
                   </label>
                   <select
-                    {...register('wunschuhrzeit', { required: 'Wunschuhrzeit ist erforderlich' })}
+                    {...register('wunschuhrzeit')}
                     id="wunschuhrzeit"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                   >
@@ -302,9 +291,6 @@ export default function BookingForm() {
                       </option>
                     ))}
                   </select>
-                  {errors.wunschuhrzeit && (
-                    <p className="mt-1 text-sm text-red-600">{errors.wunschuhrzeit.message}</p>
-                  )}
                 </div>
               </div>
 

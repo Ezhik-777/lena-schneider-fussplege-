@@ -5,24 +5,32 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://fusspflege-sachsenheim.de/</loc>
-    <lastmod>2025-01-21</lastmod>
+    <loc>https://fusspflege-lena-schneider.de/</loc>
+    <lastmod>2025-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- Coming Soon -->
+  <url>
+    <loc>https://fusspflege-lena-schneider.de/coming-soon</loc>
+    <lastmod>2025-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Impressum -->
   <url>
-    <loc>https://fusspflege-sachsenheim.de/impressum</loc>
-    <lastmod>2025-01-21</lastmod>
+    <loc>https://fusspflege-lena-schneider.de/impressum</loc>
+    <lastmod>2025-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Datenschutz -->
   <url>
-    <loc>https://fusspflege-sachsenheim.de/datenschutz</loc>
-    <lastmod>2025-01-21</lastmod>
+    <loc>https://fusspflege-lena-schneider.de/datenschutz</loc>
+    <lastmod>2025-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

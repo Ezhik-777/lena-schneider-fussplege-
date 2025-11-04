@@ -42,16 +42,16 @@ export async function POST(request: NextRequest) {
       nachricht: sanitizeString(data.nachricht || ''),
     };
 
-    // Validate required fields
-    if (!sanitizedData.vorname || !sanitizedData.nachname || !sanitizedData.email) {
+    // Validate required fields (only Vorname and Telefon are required)
+    if (!sanitizedData.vorname || !sanitizedData.telefon) {
       return NextResponse.json(
-        { message: 'Pflichtfelder fehlen: Vorname, Nachname und E-Mail sind erforderlich' },
+        { message: 'Pflichtfelder fehlen: Vorname und Telefonnummer sind erforderlich' },
         { status: 400 }
       );
     }
 
-    // Validate email
-    if (!isValidEmail(sanitizedData.email)) {
+    // Validate email if provided
+    if (sanitizedData.email && !isValidEmail(sanitizedData.email)) {
       return NextResponse.json(
         { message: 'Ungültige E-Mail-Adresse' },
         { status: 400 }
