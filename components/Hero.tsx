@@ -35,10 +35,10 @@ export default function Hero() {
             </div>
 
             {/* Highlights */}
-            <div className="space-y-2 sm:space-y-3">
+            <div className="space-y-2 sm:space-y-3" role="list">
               {highlights.map((highlight, index) => (
-                <div key={index} className="flex items-center space-x-2 sm:space-x-3">
-                  <CheckCircle2 className="text-accent-500 flex-shrink-0" size={20} />
+                <div key={index} className="flex items-center space-x-2 sm:space-x-3" role="listitem">
+                  <CheckCircle2 className="text-accent-500 flex-shrink-0" size={20} aria-hidden="true" />
                   <span className="text-sm sm:text-base text-gray-700 font-medium">{highlight}</span>
                 </div>
               ))}
@@ -49,16 +49,19 @@ export default function Hero() {
               <button
                 onClick={scrollToBooking}
                 className="group bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center space-x-2 touch-manipulation"
+                aria-label="Zum Buchungsformular scrollen"
               >
                 <span className="text-sm sm:text-base">Jetzt Termin buchen</span>
                 <ArrowRight
                   className="group-hover:translate-x-1 transition-transform"
                   size={18}
+                  aria-hidden="true"
                 />
               </button>
               <a
                 href="tel:+4917634237368"
                 className="bg-white hover:bg-gray-50 active:bg-gray-100 text-primary-700 border-2 border-primary-600 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center justify-center touch-manipulation"
+                aria-label="Telefonnummer +49 176 34237368 anrufen"
               >
                 <span className="text-sm sm:text-base">Anrufen: +49 176 34237368</span>
               </a>

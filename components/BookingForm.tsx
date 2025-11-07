@@ -351,46 +351,49 @@ export default function BookingForm() {
             </div>
 
             {/* Submit Button */}
-            <div className="pt-6">
+            <div className="pt-4 sm:pt-6">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white px-8 py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 active:from-primary-800 active:to-accent-800 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 touch-manipulation active:scale-95 text-sm sm:text-base"
+                aria-label={isSubmitting ? "Formular wird gesendet" : "Terminanfrage absenden"}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white" aria-hidden="true"></div>
                     <span>Wird gesendet...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
+                    <Send size={18} aria-hidden="true" />
                     <span>Terminanfrage senden</span>
                   </>
                 )}
               </button>
             </div>
 
-            <p className="text-sm text-gray-500 text-center">
+            <p className="text-xs sm:text-sm text-gray-500 text-center">
               * Pflichtfelder
             </p>
           </form>
 
           {/* Alternative Contact */}
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Oder kontaktieren Sie uns direkt:</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-10 sm:mt-12 text-center">
+            <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Oder kontaktieren Sie uns direkt:</p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
                 href={BUSINESS_INFO.contact.phoneHref}
-                className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-lg font-semibold hover:bg-primary-50 transition-all"
+                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-lg font-semibold hover:bg-primary-50 active:bg-primary-100 transition-all touch-manipulation active:scale-95 text-sm sm:text-base"
+                aria-label={`Telefonnummer ${BUSINESS_INFO.contact.phoneFormatted} anrufen`}
               >
-                📞 {BUSINESS_INFO.contact.phoneFormatted}
+                <span aria-hidden="true">📞</span> {BUSINESS_INFO.contact.phoneFormatted}
               </a>
               <a
                 href={BUSINESS_INFO.contact.emailHref}
-                className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-lg font-semibold hover:bg-primary-50 transition-all"
+                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-lg font-semibold hover:bg-primary-50 active:bg-primary-100 transition-all touch-manipulation active:scale-95 text-sm sm:text-base"
+                aria-label={`E-Mail an ${BUSINESS_INFO.contact.email} senden`}
               >
-                ✉️ {BUSINESS_INFO.contact.email}
+                <span aria-hidden="true">✉️</span> {BUSINESS_INFO.contact.email}
               </a>
             </div>
           </div>
