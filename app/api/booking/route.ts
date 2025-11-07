@@ -58,35 +58,81 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get n8n webhook URL from environment
-    const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
+    // Get Telegram credentials from environment
+    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-    if (!N8N_WEBHOOK_URL) {
-      console.error('n8n webhook URL is not configured');
-      console.log('Booking data (n8n not configured):', sanitizedData);
+    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+      console.error('Telegram credentials are not configured');
+      console.log('Booking data (Telegram not configured):', sanitizedData);
       return NextResponse.json(
-        { message: 'Anfrage empfangen (Webhook noch nicht konfiguriert)' },
+        { message: 'Anfrage empfangen (Benachrichtigungen noch nicht konfiguriert)' },
         { status: 200 }
       );
     }
 
-    // Send to n8n webhook
-    const webhookResponse = await fetch(N8N_WEBHOOK_URL, {
+    // Format date
+    const formatDate = (dateString: string) => {
+      if (!dateString) return 'Nicht angegeben';
+      const date = new Date(dateString);
+      return date.toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+    };
+
+    // Create formatted message for Telegram
+    const submittedAt = new Date();
+    const message = `
+🆕 <b>NEUE BUCHUNGSANFRAGE</b>
+
+👤 <b>Kunde:</b>
+   ${sanitizedData.vorname} ${sanitizedData.nachname}
+
+📞 <b>Telefon:</b>
+   <code>${sanitizedData.telefon}</code>
+
+📧 <b>Email:</b>
+   ${sanitizedData.email}
+
+💅 <b>Gewünschte Leistung:</b>
+   ${sanitizedData.leistung || 'Nicht angegeben'}
+
+📅 <b>Wunschtermin:</b>
+   ${formatDate(sanitizedData.wunschtermin)}
+
+🕐 <b>Wunschuhrzeit:</b>
+   ${sanitizedData.wunschuhrzeit || 'Nicht angegeben'}
+
+📝 <b>Nachricht:</b>
+   ${sanitizedData.nachricht || 'Keine Nachricht'}
+
+⏰ <b>Eingegangen am:</b>
+   ${submittedAt.toLocaleString('de-DE')}
+
+━━━━━━━━━━━━━━━━━━━━━━
+🌐 Quelle: Website
+`.trim();
+
+    // Send to Telegram
+    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const telegramResponse = await fetch(telegramUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        ...sanitizedData,
-        submittedAt: new Date().toISOString(),
-        source: 'website',
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: 'HTML',
       }),
     });
 
-    if (!webhookResponse.ok) {
-      const errorText = await webhookResponse.text();
-      console.error('n8n webhook error:', errorText);
-      throw new Error('Failed to send to n8n webhook');
+    if (!telegramResponse.ok) {
+      const errorData = await telegramResponse.json();
+      console.error('Telegram API error:', errorData);
+      throw new Error('Failed to send notification to Telegram');
     }
 
     return NextResponse.json(
