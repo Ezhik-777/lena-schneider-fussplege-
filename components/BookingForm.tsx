@@ -322,6 +322,19 @@ export default function BookingForm() {
               </div>
             </div>
 
+            {/* Honeypot - Anti-bot field (hidden from users) */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="website">Website (do not fill)</label>
+              <input
+                {...register('website' as any)}
+                type="text"
+                id="website"
+                name="website"
+                autoComplete="off"
+                tabIndex={-1}
+              />
+            </div>
+
             {/* Datenschutz */}
             <div className="space-y-4">
               <div className="flex items-start">
@@ -333,11 +346,12 @@ export default function BookingForm() {
                   id="datenschutz"
                   className="mt-1 w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
                 />
-                <label htmlFor="datenschutz" className="ml-3 text-sm text-gray-700">
+                <label htmlFor="datenschutz" className="ml-3 text-sm sm:text-sm text-gray-700">
                   Ich habe die{' '}
                   <a
                     href="/datenschutz"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 underline font-semibold"
                   >
                     Datenschutzerklärung
@@ -346,7 +360,7 @@ export default function BookingForm() {
                 </label>
               </div>
               {errors.datenschutz && (
-                <p className="text-sm text-red-600">{errors.datenschutz.message}</p>
+                <p className="text-sm text-red-600" role="alert">{errors.datenschutz.message}</p>
               )}
             </div>
 
