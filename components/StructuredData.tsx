@@ -1,13 +1,18 @@
 export default function StructuredData() {
+  // LocalBusiness Schema - Главное для Local SEO
   const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
-    "@id": "https://fusspflege-lena-schneider.de",
+    "@id": "https://fusspflege-lena-schneider.de/#business",
     "name": "Fußpflege Lena Schneider",
-    "description": "Professionelle kosmetische Fußpflege und Pediküre in Sachsenheim",
+    "alternateName": "Fußpflege Sachsenheim",
+    "description": "Professionelle kosmetische Fußpflege und Pediküre in Sachsenheim. Nagelpilz-Behandlung, B/S Spangentechnik, Smart Pediküre, Fußreflexzonenmassage. Termine nach Vereinbarung.",
     "url": "https://fusspflege-lena-schneider.de",
     "telephone": "+4917634237368",
     "email": "info@fusspflege-lena-schneider.de",
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Debit Card",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Brunnenstraße 25",
@@ -26,93 +31,265 @@ export default function StructuredData() {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "09:00",
-        "closes": "18:00"
+        "closes": "18:00",
+        "validFrom": "2025-01-01",
+        "validThrough": "2025-12-31"
       },
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": "Saturday",
         "opens": "09:00",
-        "closes": "14:00"
+        "closes": "14:00",
+        "validFrom": "2025-01-01",
+        "validThrough": "2025-12-31"
       }
     ],
-    "priceRange": "€€",
-    "image": "https://fusspflege-lena-schneider.de/salon-image.jpg",
+    "image": [
+      "https://fusspflege-lena-schneider.de/1.webp",
+      "https://fusspflege-lena-schneider.de/2.webp"
+    ],
     "sameAs": [
       "https://www.facebook.com/fusspflege.lena.schneider",
       "https://www.instagram.com/fusspflege.lena.schneider"
     ],
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.9615,
-        "longitude": 9.0667
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Sachsenheim"
       },
-      "geoRadius": "15000"
-    },
+      {
+        "@type": "City",
+        "name": "Ludwigsburg"
+      },
+      {
+        "@type": "City",
+        "name": "Bietigheim-Bissingen"
+      },
+      {
+        "@type": "City",
+        "name": "Vaihingen an der Enz"
+      },
+      {
+        "@type": "City",
+        "name": "Markgröningen"
+      }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Unsere Leistungen",
       "itemListElement": [
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Klassische Fachfußpflege mit Peeling",
-            "description": "Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße"
-          }
-        },
-        {
-          "@type": "Offer",
+          "price": "60",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
             "name": "Nagelpilz-Behandlung",
-            "description": "Effektive Behandlung von Nagelpilz"
+            "description": "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
+            "provider": {
+              "@id": "https://fusspflege-lena-schneider.de/#business"
+            }
           }
         },
         {
           "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "B/S Spangentechnik",
-            "description": "Nagelkorrektur mit B/S Spangentechnik"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Fußreflexzonenmassage",
-            "description": "Entspannende Fußreflexzonenmassage"
-          }
-        },
-        {
-          "@type": "Offer",
+          "price": "55",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
             "name": "Smart Pediküre",
-            "description": "Moderne Pediküre für gepflegte Füße"
+            "description": "Moderne Form der Fußpflege: Hornhaut wird sanft entfernt, die Nägel werden geformt und die Haut mit Pflegeöl gepflegt",
+            "provider": {
+              "@id": "https://fusspflege-lena-schneider.de/#business"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "price": "49",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Klassische Fachfußpflege mit Peeling",
+            "description": "Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße",
+            "provider": {
+              "@id": "https://fusspflege-lena-schneider.de/#business"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "price": "35",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Fußreflexzonenmassage",
+            "description": "Entspannende Fußmassage zur Aktivierung der Reflexzonen und Selbstheilungskräfte",
+            "provider": {
+              "@id": "https://fusspflege-lena-schneider.de/#business"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "price": "29",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "B/S Spangentechnik",
+            "description": "Nagelkorrektur mit der bewährten B/S Spangentechnik für eingewachsene Fußnägel",
+            "provider": {
+              "@id": "https://fusspflege-lena-schneider.de/#business"
+            }
           }
         }
       ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "1",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
+  // Organization Schema
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://fusspflege-lena-schneider.de/#organization",
     "name": "Fußpflege Lena Schneider",
     "url": "https://fusspflege-lena-schneider.de",
     "logo": "https://fusspflege-lena-schneider.de/logo.png",
+    "foundingDate": "2020",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+4917634237368",
       "contactType": "customer service",
       "areaServed": "DE",
-      "availableLanguage": ["German"]
+      "availableLanguage": ["de", "German"],
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Brunnenstraße 25",
+      "addressLocality": "Sachsenheim",
+      "postalCode": "74343",
+      "addressRegion": "Baden-Württemberg",
+      "addressCountry": "DE"
     }
   };
 
+  // Person Schema (Owner)
+  const personData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://fusspflege-lena-schneider.de/#person",
+    "name": "Lena Schneider",
+    "jobTitle": "Fußpflegerin",
+    "worksFor": {
+      "@id": "https://fusspflege-lena-schneider.de/#organization"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sachsenheim",
+      "addressRegion": "Baden-Württemberg",
+      "addressCountry": "DE"
+    },
+    "telephone": "+4917634237368",
+    "email": "info@fusspflege-lena-schneider.de"
+  };
+
+  // WebSite Schema with SearchAction
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://fusspflege-lena-schneider.de/#website",
+    "url": "https://fusspflege-lena-schneider.de",
+    "name": "Fußpflege Lena Schneider",
+    "description": "Professionelle kosmetische Fußpflege in Sachsenheim",
+    "publisher": {
+      "@id": "https://fusspflege-lena-schneider.de/#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://fusspflege-lena-schneider.de/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "inLanguage": "de-DE"
+  };
+
+  // FAQPage Schema - Важно для Featured Snippets
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wo befindet sich die Fußpflege in Sachsenheim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unsere Fußpflege befindet sich in Sachsenheim, Brunnenstraße 25, 74343 Sachsenheim. Wir sind zentral gelegen und gut erreichbar für Kunden aus Sachsenheim, Ludwigsburg und Umgebung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was kostet eine Fußpflege in Sachsenheim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Preise beginnen bei 29€ für B/S Spangentechnik. Eine klassische Fachfußpflege mit Peeling kostet 49€, Smart Pediküre 55€ und Nagelpilz-Behandlung 60€. Fußreflexzonenmassage ist für 35€ verfügbar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Brauche ich einen Termin für die Fußpflege?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, wir arbeiten ausschließlich nach Terminvereinbarung. Dies garantiert Ihnen eine individuelle Betreuung ohne Wartezeit. Termine können telefonisch unter +49 176 34237368 oder online über unsere Website gebucht werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Leistungen bieten Sie an?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir bieten klassische Fachfußpflege, Smart Pediküre, Nagelpilz-Behandlung, B/S Spangentechnik für eingewachsene Nägel, Fußreflexzonenmassage und Shellac-Behandlungen. Alle Behandlungen werden professionell und mit sterilen Instrumenten durchgeführt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lange dauert eine Behandlung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine klassische Fußpflege dauert ca. 45-60 Minuten, Smart Pediküre ca. 60 Minuten, Fußreflexzonenmassage ca. 30 Minuten. Nagelpilz-Behandlungen dauern 45-60 Minuten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist Parken in der Nähe möglich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, in der Brunnenstraße in Sachsenheim stehen Parkmöglichkeiten zur Verfügung. Der Salon ist gut mit dem Auto erreichbar und zentral gelegen."
+        }
+      }
+    ]
+  };
+
+  // Breadcrumb Schema
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -135,6 +312,18 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
       />
       <script
         type="application/ld+json"

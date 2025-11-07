@@ -1,4 +1,4 @@
-# Robots.txt для Fußpflege Sachsenheim
+# Robots.txt für Fußpflege Lena Schneider - Sachsenheim
 # Erlaubt allen Suchmaschinen die Indexierung
 
 User-agent: *
@@ -24,5 +24,6 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 
-# Sitemap Location
-Sitemap: https://fusspflege-sachsenheim.de/sitemap.xml
+# Sitemap Locations
+Sitemap: https://fusspflege-lena-schneider.de/sitemap.xml
+Sitemap: https://www.fusspflege-lena-schneider.de/sitemap.xml
