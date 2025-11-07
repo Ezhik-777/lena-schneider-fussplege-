@@ -84,70 +84,70 @@ export default function Services() {
 
   return (
     <section id="services" className="bg-gray-50">
-      <div className="container">
+      <div className="container px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block mb-4">
-            <span className="text-primary-600 font-semibold text-sm uppercase tracking-wider bg-white px-4 py-2 rounded-full shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
+          <div className="inline-block mb-3 sm:mb-4">
+            <span className="text-primary-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm">
               Unsere Leistungen
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
             Professionelle Fußpflegedienstleistungen
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600 px-2">
             Von professioneller Pflege bis zur entspannenden Massage -
             wir bieten alles für gesunde und gepflegte Füße.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col"
+              className="bg-white rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col"
             >
               {/* Card Header */}
-              <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-6 text-center">
-                <div className="text-5xl mb-3">{service.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-4 sm:p-5 md:p-6 text-center">
+                <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">{service.icon}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 leading-tight">
                   {service.title}
                 </h3>
               </div>
 
               {/* Card Body */}
-              <div className="p-6 space-y-4 flex flex-col flex-grow">
-                <p className="text-gray-600 leading-relaxed min-h-[60px]">
+              <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4 flex flex-col flex-grow">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {service.description}
                 </p>
 
                 {/* Note */}
                 {service.note && (
-                  <p className="text-sm text-gray-500 italic">
+                  <p className="text-xs sm:text-sm text-gray-500 italic">
                     {service.note}
                   </p>
                 )}
 
                 {/* Features */}
-                <ul className="space-y-2 flex-grow">
+                <ul className="space-y-1.5 sm:space-y-2 flex-grow">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start space-x-2 text-sm text-gray-700">
-                      <span className="text-accent-500 mt-0.5">✓</span>
+                    <li key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-gray-700">
+                      <span className="text-accent-500 mt-0.5 flex-shrink-0">✓</span>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Divider */}
-                <div className="border-t border-gray-200 pt-4 mt-auto">
+                <div className="border-t border-gray-200 pt-3 sm:pt-4 mt-auto">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <Clock size={16} />
+                    <div className="flex items-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm text-gray-600">
+                      <Clock size={14} className="sm:w-4 sm:h-4" />
                       <span>{service.duration}</span>
                     </div>
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary-600">
-                      <Euro size={18} />
+                    <div className="flex items-center space-x-1 text-base sm:text-lg font-bold text-primary-600">
+                      <Euro size={16} className="sm:w-[18px] sm:h-[18px]" />
                       <span>{service.price.replace('ab ', '').replace(' €', '')}</span>
                     </div>
                   </div>
@@ -158,24 +158,24 @@ export default function Services() {
         </div>
 
         {/* New Customer Discount Banner */}
-        <div className="mt-8 bg-gradient-to-br from-accent-50 to-primary-50 rounded-2xl p-8 border-2 border-accent-200">
+        <div className="mt-6 sm:mt-8 bg-gradient-to-br from-accent-50 to-primary-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border-2 border-accent-200">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="text-4xl mb-4">🎉</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">
+            <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🎉</div>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
               Neukunden-Rabatt
             </h3>
-            <p className="text-3xl font-bold text-primary-600 mb-2">
+            <p className="text-2xl sm:text-3xl font-bold text-primary-600 mb-1 sm:mb-2">
               10% Rabatt
             </p>
-            <p className="text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 font-medium">
               auf Ihre erste Behandlung
             </p>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">
+        <div className="text-center mt-8 sm:mt-10 md:mt-12">
+          <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 px-4">
             Haben Sie Fragen zu unseren Leistungen? Kontaktieren Sie uns gerne!
           </p>
           <button
@@ -183,7 +183,7 @@ export default function Services() {
               const element = document.getElementById('booking');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+            className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl active:scale-95 touch-manipulation text-sm sm:text-base"
           >
             Jetzt Termin vereinbaren
           </button>

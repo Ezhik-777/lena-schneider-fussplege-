@@ -35,19 +35,20 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-md py-4'
-          : 'bg-white/95 backdrop-blur-sm py-6'
+          ? 'bg-white shadow-md py-3 sm:py-4'
+          : 'bg-white/95 backdrop-blur-sm py-4 sm:py-6'
       }`}
     >
-      <div className="container">
+      <div className="container px-4 sm:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-2xl font-bold text-primary-700 hover:text-primary-800 transition-colors"
+              className="text-lg sm:text-xl md:text-2xl font-bold text-primary-700 hover:text-primary-800 transition-colors leading-tight"
             >
-              Fußpflege Lena Schneider
+              <span className="hidden sm:inline">Fußpflege Lena Schneider</span>
+              <span className="sm:hidden">Fußpflege<br/>L. Schneider</span>
             </button>
           </div>
 
@@ -65,17 +66,17 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             <a
               href="tel:+4917634237368"
-              className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 transition-colors"
+              className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 transition-colors touch-manipulation"
             >
-              <Phone size={20} />
-              <span className="font-semibold">+49 176 34237368</span>
+              <Phone size={18} className="xl:w-5 xl:h-5" />
+              <span className="font-semibold text-sm xl:text-base">+49 176 34237368</span>
             </a>
             <button
               onClick={() => scrollToSection('booking')}
-              className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"
+              className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white px-5 xl:px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg active:scale-95 touch-manipulation text-sm xl:text-base"
             >
               Termin vereinbaren
             </button>
@@ -84,36 +85,36 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors touch-manipulation"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={26} className="sm:w-7 sm:h-7" /> : <Menu size={26} className="sm:w-7 sm:h-7" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 pb-6 border-t border-gray-200 pt-6 animate-in slide-in-from-top duration-300">
-            <nav className="flex flex-col space-y-4">
+          <div className="lg:hidden mt-4 sm:mt-6 pb-4 sm:pb-6 border-t border-gray-200 pt-4 sm:pt-6 animate-in slide-in-from-top duration-300">
+            <nav className="flex flex-col space-y-3 sm:space-y-4">
               {menuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 hover:text-primary-600 transition-colors font-medium text-left py-2"
+                  className="text-gray-700 hover:text-primary-600 active:text-primary-700 transition-colors font-medium text-left py-2.5 sm:py-2 touch-manipulation text-base sm:text-lg"
                 >
                   {item.label}
                 </button>
               ))}
               <a
                 href="tel:+4917634237368"
-                className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 transition-colors py-2"
+                className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 active:text-primary-800 transition-colors py-2.5 sm:py-2 touch-manipulation"
               >
                 <Phone size={20} />
-                <span className="font-semibold">+49 176 34237368</span>
+                <span className="font-semibold text-base sm:text-lg">+49 176 34237368</span>
               </a>
               <button
                 onClick={() => scrollToSection('booking')}
-                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md w-full"
+                className="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white px-6 py-3.5 sm:py-3 rounded-lg font-semibold transition-all shadow-md active:scale-95 w-full touch-manipulation text-base sm:text-lg"
               >
                 Termin vereinbaren
               </button>
