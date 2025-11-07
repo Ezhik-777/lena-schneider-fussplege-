@@ -37,12 +37,10 @@ export default function ImpressumPage() {
                 Angaben gemäß § 5 TMG
               </h2>
               <div className="space-y-2 text-gray-700">
-                <p className="font-semibold">Fußpflege Sachsenheim - Inhaberin: Lena [Nachname]</p>
+                <p className="font-semibold">Fußpflege Lena Schneider</p>
+                <p>Inhaberin: Lena Schneider</p>
                 <p>Brunnenstraße 25</p>
                 <p>74343 Sachsenheim</p>
-                <p className="text-sm text-gray-600 mt-2 italic">
-                  (Bitte vollständigen Namen eintragen)
-                </p>
               </div>
             </section>
 
@@ -56,27 +54,11 @@ export default function ImpressumPage() {
                 <p>
                   <strong>E-Mail:</strong>{' '}
                   <a
-                    href="mailto:info@beispiel.de"
+                    href="mailto:info@fusspflege-lena-schneider.de"
                     className="text-primary-600 hover:text-primary-700 underline"
                   >
-                    info@beispiel.de
+                    info@fusspflege-lena-schneider.de
                   </a>
-                </p>
-              </div>
-            </section>
-
-            {/* Umsatzsteuer-ID */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Umsatzsteuer-ID
-              </h2>
-              <div className="text-gray-700">
-                <p>
-                  Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:
-                </p>
-                <p className="font-semibold">[USt-IdNr.]</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  (Falls zutreffend - ansonsten diesen Abschnitt entfernen)
                 </p>
               </div>
             </section>
@@ -84,50 +66,44 @@ export default function ImpressumPage() {
             {/* Berufsbezeichnung */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Berufsbezeichnung
+                Berufsbezeichnung und Tätigkeit
               </h2>
               <div className="text-gray-700">
-                <p>Medizinische Fußpflegerin (Podologin)</p>
-                <p>Verliehen in: Deutschland</p>
+                <p>Kosmetische Fußpflegerin</p>
+                <p>Tätigkeitsbereich: Kosmetische Fußpflege (nicht medizinisch)</p>
               </div>
             </section>
 
-            {/* Zuständige Aufsichtsbehörde */}
+            {/* Umsatzsteuer */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Umsatzsteuer
+              </h2>
+              <div className="text-gray-700">
+                <p>
+                  Kleinunternehmer gemäß § 19 UStG - es wird keine Umsatzsteuer berechnet.
+                </p>
+              </div>
+            </section>
+
+            {/* Zuständige Kammer */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Zuständige Aufsichtsbehörde
               </h2>
               <div className="text-gray-700">
-                <p>[Name der zuständigen Behörde]</p>
-                <p>[Adresse der Behörde]</p>
-                <p>
+                <p>Gesundheitsamt Ludwigsburg</p>
+                <p>Hindenburgstraße 20/1</p>
+                <p>71638 Ludwigsburg</p>
+                <p className="mt-2">
                   Website:{' '}
                   <a
-                    href="#"
-                    className="text-primary-600 hover:text-primary-700 underline"
-                  >
-                    [Link zur Behörde]
-                  </a>
-                </p>
-              </div>
-            </section>
-
-            {/* Berufsrechtliche Regelungen */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Berufsrechtliche Regelungen
-              </h2>
-              <div className="text-gray-700 space-y-2">
-                <p>Podologengesetz (PodG)</p>
-                <p>
-                  Einsehbar unter:{' '}
-                  <a
-                    href="https://www.gesetze-im-internet.de/podg/"
+                    href="https://www.landkreis-ludwigsburg.de"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 underline"
                   >
-                    www.gesetze-im-internet.de/podg
+                    www.landkreis-ludwigsburg.de
                   </a>
                 </p>
               </div>

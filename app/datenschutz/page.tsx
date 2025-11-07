@@ -116,12 +116,13 @@ export default function DatenschutzPage() {
                 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
               </p>
               <div className="bg-gray-50 p-4 rounded-lg my-4">
-                <p className="font-semibold">[Vollständiger Name / Firmenname]</p>
-                <p>[Straße und Hausnummer]</p>
-                <p>[PLZ] [Stadt]</p>
+                <p className="font-semibold">Fußpflege Lena Schneider</p>
+                <p>Inhaberin: Lena Schneider</p>
+                <p>Brunnenstraße 25</p>
+                <p>74343 Sachsenheim</p>
                 <p className="mt-2">
-                  Telefon: +49 123 456 7890<br />
-                  E-Mail: info@beispiel.de
+                  Telefon: +49 176 34237368<br />
+                  E-Mail: info@fusspflege-lena-schneider.de
                 </p>
               </div>
               <p>
@@ -254,36 +255,43 @@ export default function DatenschutzPage() {
                 6. Externe Dienste und Tools
               </h2>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Airtable</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Telegram Bot API (Terminbenachrichtigungen)
+              </h3>
               <p>
-                Wir verwenden Airtable zur Verwaltung und Speicherung von Terminanfragen.
-                Airtable ist ein Dienst der Formagrid Inc., 799 Market Street, 8th Floor,
-                San Francisco, CA 94103, USA.
+                Wir verwenden die Telegram Bot API zur sofortigen Benachrichtigung über
+                Terminanfragen. Telegram ist ein Dienst der Telegram Messenger LLP,
+                71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, Vereinigtes Königreich.
               </p>
               <p className="mt-3">
-                Wenn Sie eine Terminanfrage über unser Kontaktformular senden, werden Ihre
-                Daten an Airtable übermittelt und dort gespeichert. Dies umfasst:
+                Wenn Sie eine Terminanfrage über unser Kontaktformular senden, werden
+                folgende Daten verschlüsselt an die Telegram API übermittelt:
               </p>
               <ul className="list-disc list-inside space-y-1 mt-3">
                 <li>Vor- und Nachname</li>
                 <li>Telefonnummer</li>
                 <li>E-Mail-Adresse</li>
-                <li>Adresse</li>
-                <li>Gewünschte Leistung und Termindetails</li>
+                <li>Gewünschte Leistung</li>
+                <li>Wunschtermin und Nachricht</li>
               </ul>
               <p className="mt-3">
-                Die Datenverarbeitung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1
-                lit. a DSGVO). Sie können Ihre Einwilligung jederzeit widerrufen.
+                Die Daten werden ausschließlich zur Bearbeitung Ihrer Terminanfrage verwendet
+                und nicht für andere Zwecke gespeichert oder weitergegeben. Die Übertragung
+                erfolgt verschlüsselt über HTTPS.
               </p>
               <p className="mt-3">
-                Mehr Informationen zum Datenschutz bei Airtable finden Sie unter:{' '}
+                Rechtsgrundlage: Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b
+                DSGVO zur Durchführung vorvertraglicher Maßnahmen (Terminvereinbarung).
+              </p>
+              <p className="mt-3">
+                Mehr Informationen zum Datenschutz bei Telegram finden Sie unter:{' '}
                 <a
-                  href="https://www.airtable.com/privacy"
+                  href="https://telegram.org/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-600 hover:text-primary-700 underline"
                 >
-                  https://www.airtable.com/privacy
+                  https://telegram.org/privacy
                 </a>
               </p>
 
