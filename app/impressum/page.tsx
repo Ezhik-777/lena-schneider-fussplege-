@@ -37,7 +37,8 @@ export default function ImpressumPage() {
                 Angaben gemäß § 5 TMG
               </h2>
               <div className="space-y-2 text-gray-700">
-                <p className="font-semibold">Fußpflege Sachsenheim - Inhaberin: Elena Schneider</p>
+                <p className="font-semibold">Fußpflege Lena Schneider</p>
+                <p>Inhaberin: Lena Schneider</p>
                 <p>Brunnenstraße 25</p>
                 <p>74343 Sachsenheim</p>
               </div>
@@ -62,26 +63,49 @@ export default function ImpressumPage() {
               </div>
             </section>
 
-            {/* Umsatzsteuer-ID */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Umsatzsteuer-ID
-              </h2>
-              <div className="text-gray-700">
-                <p>
-                  Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:
-                </p>
-                <p className="font-semibold">[USt-IdNr. hier eintragen]</p>
-              </div>
-            </section>
-
             {/* Berufsbezeichnung */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Berufsbezeichnung
+                Berufsbezeichnung und Tätigkeit
               </h2>
               <div className="text-gray-700">
-                <p>Kosmetische Fußpflege</p>
+                <p>Kosmetische Fußpflegerin</p>
+                <p>Tätigkeitsbereich: Kosmetische Fußpflege (nicht medizinisch)</p>
+              </div>
+            </section>
+
+            {/* Umsatzsteuer */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Umsatzsteuer
+              </h2>
+              <div className="text-gray-700">
+                <p>
+                  Kleinunternehmer gemäß § 19 UStG - es wird keine Umsatzsteuer berechnet.
+                </p>
+              </div>
+            </section>
+
+            {/* Zuständige Kammer */}
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Zuständige Aufsichtsbehörde
+              </h2>
+              <div className="text-gray-700">
+                <p>Gesundheitsamt Ludwigsburg</p>
+                <p>Hindenburgstraße 20/1</p>
+                <p>71638 Ludwigsburg</p>
+                <p className="mt-2">
+                  Website:{' '}
+                  <a
+                    href="https://www.landkreis-ludwigsburg.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 hover:text-primary-700 underline"
+                  >
+                    www.landkreis-ludwigsburg.de
+                  </a>
+                </p>
               </div>
             </section>
 

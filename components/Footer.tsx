@@ -1,9 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Footer() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button after scrolling down 300px
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -170,14 +183,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center z-40"
-        aria-label="Nach oben scrollen"
-      >
-        ↑
-      </button>
+      {/* Back to Top Button - Only show when scrolled */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-12 sm:h-12 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center z-40 animate-in fade-in slide-in-from-bottom-4 duration-300 touch-manipulation group"
+          aria-label="Nach oben scrollen"
+        >
+          <ArrowUp size={20} className="group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+        </button>
+      )}
     </footer>
   );
 }
