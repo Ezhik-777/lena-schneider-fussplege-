@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Rate limiting: Simple in-memory store (for production, use Redis or similar)
+// Updated: 2025-11-09 - Increased limit for testing
 const submissionTracker = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
 const MAX_SUBMISSIONS_PER_HOUR = 20; // Temporarily increased for testing
