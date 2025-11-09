@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // Rate limiting: Simple in-memory store (for production, use Redis or similar)
 const submissionTracker = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
-const MAX_SUBMISSIONS_PER_HOUR = 3;
+const MAX_SUBMISSIONS_PER_HOUR = 20; // Temporarily increased for testing
 
 // Helper function to sanitize string inputs (XSS prevention)
 function sanitizeString(input: string): string {
@@ -249,9 +249,13 @@ export async function POST(request: NextRequest) {
 
       if (!telegramResponse.ok) {
         const errorData = await telegramResponse.json();
-        console.error('Telegram API error:', errorData);
-        throw new Error('Failed to send notification to Telegram');
+        console.error('Telegram API error:', JSON.stringify(errorData, null, 2));
+        console.error('Telegram response status:', telegramResponse.status);
+        throw new Error(`Failed to send notification to Telegram: ${JSON.stringify(errorData)}`);
       }
+
+      const successData = await telegramResponse.json();
+      console.log('Telegram message sent successfully:', successData.result?.message_id);
     } catch (error) {
       clearTimeout(timeoutId);
       // Log error but don't expose details to user
