@@ -37,10 +37,42 @@ html {
 
 /* Стили для секций */
 section {
-  @apply py-16 md:py-24;
+  @apply py-12 sm:py-16 md:py-20 lg:py-24;
 }
 
 /* Контейнер */
 .container {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Улучшенная типографика для мобильных */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    @apply leading-tight;
+  }
+
+  h2 {
+    @apply leading-snug;
+  }
+
+  h3 {
+    @apply leading-snug;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* Улучшенные touch-таргеты */
+@media (max-width: 1024px) {
+  button, a[role="button"], input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

@@ -82,19 +82,19 @@ export default function BookingForm() {
 
   return (
     <section id="booking" className="bg-gradient-to-br from-gray-50 to-white">
-      <div className="container px-4 sm:px-6">
+      <div className="container px-5 sm:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <div className="inline-block mb-3 sm:mb-4">
-              <span className="text-primary-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm">
+            <div className="inline-block mb-4 sm:mb-4">
+              <span className="text-primary-600 font-bold text-[0.8125rem] sm:text-sm uppercase tracking-wider bg-white px-4 sm:px-4 py-2 sm:py-2 rounded-full shadow-sm">
                 Termin buchen
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
+            <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-4 px-2 leading-tight">
               Vereinbaren Sie jetzt Ihren <span className="text-primary-600">Wunschtermin</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 px-2">
+            <p className="text-[1.0625rem] sm:text-lg text-gray-700 px-2 leading-relaxed font-medium">
               Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen.
             </p>
           </div>
@@ -105,14 +105,14 @@ export default function BookingForm() {
               id="success-message"
               role="status"
               aria-live="polite"
-              className="mb-6 sm:mb-8 bg-green-50 border-l-4 border-green-500 rounded-lg p-4 sm:p-5 md:p-6 flex items-start space-x-2 sm:space-x-3 animate-in slide-in-from-top"
+              className="mb-6 sm:mb-8 bg-green-50 border-l-4 border-green-500 rounded-xl p-5 sm:p-5 md:p-6 flex items-start space-x-3 sm:space-x-3 animate-in slide-in-from-top"
             >
-              <CheckCircle2 className="text-green-500 flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+              <CheckCircle2 className="text-green-500 flex-shrink-0 mt-0.5 w-6 h-6 sm:w-6 sm:h-6" aria-hidden="true" />
               <div>
-                <h3 className="text-sm sm:text-base text-green-900 font-bold mb-1">
+                <h3 className="text-[1rem] sm:text-base text-green-900 font-bold mb-1.5">
                   Vielen Dank für Ihre Anfrage!
                 </h3>
-                <p className="text-xs sm:text-sm text-green-700">
+                <p className="text-[0.9375rem] sm:text-sm text-green-700 leading-relaxed">
                   Wir haben Ihre Terminanfrage erhalten und werden uns in Kürze bei Ihnen melden.
                 </p>
               </div>
@@ -124,12 +124,12 @@ export default function BookingForm() {
             <div
               role="alert"
               aria-live="assertive"
-              className="mb-6 sm:mb-8 bg-red-50 border-l-4 border-red-500 rounded-lg p-4 sm:p-5 md:p-6 flex items-start space-x-2 sm:space-x-3"
+              className="mb-6 sm:mb-8 bg-red-50 border-l-4 border-red-500 rounded-xl p-5 sm:p-5 md:p-6 flex items-start space-x-3 sm:space-x-3"
             >
-              <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+              <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5 w-6 h-6 sm:w-6 sm:h-6" aria-hidden="true" />
               <div>
-                <h3 className="text-sm sm:text-base text-red-900 font-bold mb-1">Fehler beim Senden</h3>
-                <p className="text-xs sm:text-sm text-red-700">
+                <h3 className="text-[1rem] sm:text-base text-red-900 font-bold mb-1.5">Fehler beim Senden</h3>
+                <p className="text-[0.9375rem] sm:text-sm text-red-700 leading-relaxed">
                   Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.
                 </p>
               </div>
@@ -137,16 +137,16 @@ export default function BookingForm() {
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 lg:p-10 space-y-5 sm:space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-2xl sm:rounded-2xl shadow-xl p-6 sm:p-6 md:p-8 lg:p-10 space-y-6 sm:space-y-6">
             {/* Persönliche Daten */}
-            <div className="space-y-4 sm:space-y-6">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 sm:pb-3">
+            <div className="space-y-5 sm:space-y-6">
+              <h3 className="text-[1.1875rem] sm:text-xl font-bold text-gray-900 border-b border-gray-200 pb-3 sm:pb-3">
                 Persönliche Daten
               </h3>
 
-              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
                 <div>
-                  <label htmlFor="vorname" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
+                  <label htmlFor="vorname" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2 sm:mb-2">
                     Vorname *
                   </label>
                   <input
@@ -156,16 +156,16 @@ export default function BookingForm() {
                     disabled={isSubmitting}
                     aria-invalid={!!errors.vorname}
                     aria-describedby={errors.vorname ? 'vorname-error' : undefined}
-                    className={`w-full px-3 sm:px-4 py-3 sm:py-3.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full px-4 sm:px-4 py-4 sm:py-3.5 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     placeholder="Max"
                   />
                   {errors.vorname && (
-                    <p id="vorname-error" role="alert" className="mt-1 text-xs sm:text-sm text-red-600">{errors.vorname.message}</p>
+                    <p id="vorname-error" role="alert" className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium">{errors.vorname.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="nachname" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="nachname" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                     Nachname
                   </label>
                   <input
@@ -173,15 +173,15 @@ export default function BookingForm() {
                     type="text"
                     id="nachname"
                     disabled={isSubmitting}
-                    className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     placeholder="Mustermann"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
                 <div>
-                  <label htmlFor="telefon" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="telefon" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                     Telefonnummer *
                   </label>
                   <input
@@ -194,16 +194,16 @@ export default function BookingForm() {
                     })}
                     type="tel"
                     id="telefon"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px]"
                     placeholder={BUSINESS_INFO.contact.phoneFormatted}
                   />
                   {errors.telefon && (
-                    <p className="mt-1 text-sm text-red-600">{errors.telefon.message}</p>
+                    <p className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium">{errors.telefon.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                     E-Mail
                   </label>
                   <input
@@ -215,30 +215,30 @@ export default function BookingForm() {
                     })}
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px]"
                     placeholder="max@beispiel.de"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                    <p className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium">{errors.email.message}</p>
                   )}
                 </div>
               </div>
             </div>
 
             {/* Termindetails */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-3">
+            <div className="space-y-5 sm:space-y-6">
+              <h3 className="text-[1.1875rem] sm:text-xl font-bold text-gray-900 border-b border-gray-200 pb-3">
                 Termindetails
               </h3>
 
               <div>
-                <label htmlFor="leistung" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="leistung" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                   Gewünschte Leistung
                 </label>
                 <select
                   {...register('leistung')}
                   id="leistung"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px]"
                 >
                   <option value="">Bitte wählen...</option>
                   {services.map((service) => (
@@ -249,9 +249,9 @@ export default function BookingForm() {
                 </select>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
                 <div>
-                  <label htmlFor="wunschtermin" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="wunschtermin" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                     Wunschtermin
                   </label>
                   <input
@@ -268,21 +268,21 @@ export default function BookingForm() {
                     id="wunschtermin"
                     min={new Date().toISOString().split('T')[0]}
                     disabled={isSubmitting}
-                    className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   />
                   {errors.wunschtermin && (
-                    <p className="mt-1 text-sm text-red-600">{errors.wunschtermin.message}</p>
+                    <p className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium">{errors.wunschtermin.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="wunschuhrzeit" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="wunschuhrzeit" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                     Wunschuhrzeit
                   </label>
                   <select
                     {...register('wunschuhrzeit')}
                     id="wunschuhrzeit"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px]"
                   >
                     <option value="">Bitte wählen...</option>
                     {timeSlots.map((slot) => (
@@ -295,14 +295,14 @@ export default function BookingForm() {
               </div>
 
               <div>
-                <label htmlFor="nachricht" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="nachricht" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
                   Nachricht / Anmerkungen (optional)
                 </label>
                 <textarea
                   {...register('nachricht')}
                   id="nachricht"
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all resize-none min-h-[120px]"
                   placeholder="Besondere Wünsche oder Anmerkungen..."
                 ></textarea>
               </div>
@@ -323,22 +323,22 @@ export default function BookingForm() {
 
             {/* Datenschutz */}
             <div className="space-y-4">
-              <div className="flex items-start">
+              <div className="flex items-start gap-3">
                 <input
                   {...register('datenschutz', {
                     required: 'Sie müssen die Datenschutzerklärung akzeptieren',
                   })}
                   type="checkbox"
                   id="datenschutz"
-                  className="mt-1 w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                  className="mt-1 w-5 h-5 text-primary-600 border-2 border-gray-300 rounded focus:ring-primary-500 flex-shrink-0"
                 />
-                <label htmlFor="datenschutz" className="ml-3 text-sm sm:text-sm text-gray-700">
+                <label htmlFor="datenschutz" className="text-[0.9375rem] sm:text-sm text-gray-700 leading-relaxed">
                   Ich habe die{' '}
                   <a
                     href="/datenschutz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary-600 hover:text-primary-700 underline font-semibold"
+                    className="text-primary-600 hover:text-primary-700 underline font-bold"
                   >
                     Datenschutzerklärung
                   </a>{' '}
@@ -346,54 +346,54 @@ export default function BookingForm() {
                 </label>
               </div>
               {errors.datenschutz && (
-                <p className="text-sm text-red-600" role="alert">{errors.datenschutz.message}</p>
+                <p className="text-[0.875rem] sm:text-sm text-red-600 font-medium" role="alert">{errors.datenschutz.message}</p>
               )}
             </div>
 
             {/* Submit Button */}
-            <div className="pt-4 sm:pt-6">
+            <div className="pt-5 sm:pt-6">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 active:from-primary-800 active:to-accent-800 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 touch-manipulation active:scale-95 text-sm sm:text-base"
+                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 active:from-primary-800 active:to-accent-800 text-white px-7 sm:px-8 py-4.5 sm:py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 touch-manipulation active:scale-95 text-[1.0625rem] sm:text-base min-h-[56px]"
                 aria-label={isSubmitting ? "Formular wird gesendet" : "Terminanfrage absenden"}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white" aria-hidden="true"></div>
+                    <div className="animate-spin rounded-full h-5 w-5 sm:h-5 sm:w-5 border-b-2 border-white" aria-hidden="true"></div>
                     <span>Wird gesendet...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={18} aria-hidden="true" />
+                    <Send size={20} aria-hidden="true" />
                     <span>Terminanfrage senden</span>
                   </>
                 )}
               </button>
             </div>
 
-            <p className="text-xs sm:text-sm text-gray-500 text-center">
+            <p className="text-[0.875rem] sm:text-sm text-gray-600 text-center font-medium">
               * Pflichtfelder
             </p>
           </form>
 
           {/* Alternative Contact */}
           <div className="mt-10 sm:mt-12 text-center">
-            <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Oder kontaktieren Sie uns direkt:</p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <p className="text-[1rem] sm:text-base text-gray-700 mb-4 sm:mb-4 font-medium">Oder kontaktieren Sie uns direkt:</p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center">
               <a
                 href={BUSINESS_INFO.contact.phoneHref}
-                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-lg font-semibold hover:bg-primary-50 active:bg-primary-100 transition-all touch-manipulation active:scale-95 text-sm sm:text-base"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-6 py-4 sm:py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-xl font-bold hover:bg-primary-50 active:bg-primary-100 transition-all touch-manipulation active:scale-95 text-[1rem] sm:text-base min-h-[56px]"
                 aria-label={`Telefonnummer ${BUSINESS_INFO.contact.phoneFormatted} anrufen`}
               >
-                <span aria-hidden="true">📞</span> {BUSINESS_INFO.contact.phoneFormatted}
+                <span aria-hidden="true" className="text-xl">📞</span> {BUSINESS_INFO.contact.phoneFormatted}
               </a>
               <a
                 href={BUSINESS_INFO.contact.emailHref}
-                className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-lg font-semibold hover:bg-primary-50 active:bg-primary-100 transition-all touch-manipulation active:scale-95 text-sm sm:text-base"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-6 py-4 sm:py-3 bg-white border-2 border-primary-600 text-primary-700 rounded-xl font-bold hover:bg-primary-50 active:bg-primary-100 transition-all touch-manipulation active:scale-95 text-[1rem] sm:text-base min-h-[56px]"
                 aria-label={`E-Mail an ${BUSINESS_INFO.contact.email} senden`}
               >
-                <span aria-hidden="true">✉️</span> {BUSINESS_INFO.contact.email}
+                <span aria-hidden="true" className="text-xl">✉️</span> {BUSINESS_INFO.contact.email}
               </a>
             </div>
           </div>
