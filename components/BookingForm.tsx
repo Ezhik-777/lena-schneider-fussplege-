@@ -407,6 +407,21 @@ export default function BookingForm() {
               )}
             </div>
 
+            {/* Cancellation Policy Notice */}
+            <div className="bg-amber-50 border-l-4 border-amber-500 rounded-xl p-4 sm:p-5">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl flex-shrink-0" aria-hidden="true">⏰</span>
+                <div>
+                  <h4 className="text-[0.9375rem] sm:text-sm font-bold text-amber-900 mb-1">
+                    Hinweis zur Terminabsage
+                  </h4>
+                  <p className="text-[0.875rem] sm:text-sm text-amber-800 leading-relaxed">
+                    Nicht rechtzeitig abgesagte Termine berechne ich Ihnen mit 25€. Bitte sagen Sie Termine mindestens 24 Stunden vorher ab.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Submit Button */}
             <div className="pt-5 sm:pt-6">
               <button

@@ -142,6 +142,13 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
+
+            {/* Cancellation Policy */}
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <p className="text-xs text-amber-400 font-semibold leading-relaxed">
+                Nicht rechtzeitig abgesagte Termine werden mit 25€ berechnet.
+              </p>
+            </div>
           </div>
         </div>
       </div>
