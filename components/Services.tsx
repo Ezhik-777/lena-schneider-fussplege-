@@ -8,7 +8,7 @@ export default function Services() {
       icon: '🦠',
       title: 'Präventive Nagelpilz-Behandlung',
       description: 'Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden.',
-      duration: '45-60 Min.',
+      duration: '20 Min.',
       price: '60 €',
       features: [
         'Schmerzfreie Behandlung',
@@ -20,7 +20,7 @@ export default function Services() {
       icon: '✨',
       title: 'Smart Pediküre',
       description: 'Moderne Form der Fußpflege: Hornhaut wird sanft entfernt, die Nägel werden geformt und die Haut mit Pflegeöl gepflegt. Das sorgt für glatte, gepflegte Füße und ein langanhaltendes Frischegefühl.',
-      duration: '60 Min.',
+      duration: '50 Min.',
       price: '55 €',
       features: [
         'Sanfte Hornhautentfernung',
@@ -33,7 +33,7 @@ export default function Services() {
       icon: '🦶',
       title: 'Klassische Fachfußpflege mit Peeling',
       description: 'Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße.',
-      duration: '45-60 Min.',
+      duration: '45 Min.',
       price: '49 €',
       features: [
         'Nägel schneiden/kürzen',
@@ -46,20 +46,18 @@ export default function Services() {
     {
       icon: '💆',
       title: 'Fußreflexzonenmassage',
-      description: 'Entspannende und heilende Massage zur Aktivierung der Selbstheilungskräfte und Stressabbau.',
+      description: 'Entspannende Massage für Stressabbau.',
       duration: '30 Min.',
       price: '35 €',
       features: [
-        'Ganzkörperliche Wirkung',
         'Stressabbau und Entspannung',
-        'Verbesserung des Wohlbefindens',
       ],
     },
     {
       icon: '🔧',
       title: 'Präventive B/S Spangentechnik',
       description: 'Innovative Korrekturspange für eingewachsene Fußnägel - schmerzfrei und effektiv.',
-      duration: '30-45 Min.',
+      duration: '10 Min.',
       price: '29 €',
       note: 'Ohne Fußpflege',
       features: [
@@ -78,6 +76,19 @@ export default function Services() {
         'Schonende Entfernung',
         'Schnell und effektiv',
         'Ohne Beschädigung der Nägel',
+      ],
+    },
+    {
+      icon: '💅',
+      title: 'Nagelmodellage mit Gel',
+      description: 'Professionelle Gel-Nagelmodellage für gepflegte und schöne Hände.',
+      duration: '60 Min.',
+      price: '45 €',
+      features: [
+        'Professionelle Gel-Modellage',
+        'Langanhaltende Ergebnisse',
+        'Natürlicher Look',
+        'Verschiedene Designs möglich',
       ],
     },
   ];
@@ -106,7 +117,9 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col"
+              className={`bg-white rounded-2xl sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col ${
+                index === services.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:mx-auto sm:max-w-md lg:col-start-2' : ''
+              }`}
             >
               {/* Card Header */}
               <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-5 sm:p-5 md:p-6 text-center">
@@ -169,6 +182,22 @@ export default function Services() {
             </p>
             <p className="text-[1rem] sm:text-base text-gray-700 font-semibold">
               auf Ihre erste Behandlung
+            </p>
+          </div>
+        </div>
+
+        {/* Models Wanted Banner */}
+        <div className="mt-6 sm:mt-6 bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl sm:rounded-2xl p-6 sm:p-6 md:p-8 border-2 border-pink-200">
+          <div className="text-center max-w-2xl mx-auto">
+            <div className="text-4xl sm:text-4xl mb-4 sm:mb-4">💅✨</div>
+            <h3 className="text-[1.375rem] sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-4 leading-tight">
+              Ich suche Modelle für eine Nagelmodellage mit Gel!
+            </h3>
+            <p className="text-[1.125rem] sm:text-xl text-gray-700 mb-2 sm:mb-2 font-semibold">
+              Der Preis beträgt nur <span className="text-pink-600 font-bold">45 €</span>
+            </p>
+            <p className="text-[1.125rem] sm:text-xl text-gray-700 font-semibold">
+              und zusätzlich gibt es <span className="text-pink-600 font-bold">15 % Rabatt</span>
             </p>
           </div>
         </div>

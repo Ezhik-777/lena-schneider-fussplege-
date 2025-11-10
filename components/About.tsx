@@ -43,8 +43,8 @@ export default function About() {
                     {/* Image container */}
                     <div className="w-full h-full rounded-[1.2rem] sm:rounded-[1.7rem] overflow-hidden relative shadow-lg">
                       <Image
-                        src="/1.webp"
-                        alt="Lena - Professionelle Fußpflegerin in Sachsenheim"
+                        src="/nails-work.jpg"
+                        alt="Lena Schneider - Professionelle Fußpflege und Nagelmodellage in Sachsenheim"
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"

@@ -63,7 +63,7 @@ export const SERVICES = [
     title: "Präventive Nagelpilz-Behandlung",
     description: "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
     price: "60 €",
-    duration: "ca. 45-60 Min.",
+    duration: "ca. 20 Min.",
     icon: "🦠",
   },
   {
@@ -71,7 +71,7 @@ export const SERVICES = [
     title: "Smart Pediküre",
     description: "Moderne Form der Fußpflege: Hornhaut wird sanft entfernt, die Nägel werden geformt und die Haut mit Pflegeöl gepflegt",
     price: "55 €",
-    duration: "ca. 60 Min.",
+    duration: "ca. 50 Min.",
     icon: "✨",
   },
   {
@@ -79,14 +79,14 @@ export const SERVICES = [
     title: "Klassische Fachfußpflege mit Peeling",
     description: "Professionelle kosmetische Fußpflege für gesunde und gepflegte Füße",
     price: "49 €",
-    duration: "ca. 45-60 Min.",
+    duration: "ca. 45 Min.",
     icon: "🦶",
     note: "Aufpreis für Shellac: +9€",
   },
   {
     id: "massage",
     title: "Fußreflexzonenmassage",
-    description: "Entspannende Fußmassage zur Aktivierung der Reflexzonen und Selbstheilungskräfte",
+    description: "Entspannende Massage für Stressabbau",
     price: "35 €",
     duration: "ca. 30 Min.",
     icon: "💆",
@@ -96,7 +96,7 @@ export const SERVICES = [
     title: "Präventive B/S Spangentechnik",
     description: "Nagelkorrektur mit der bewährten B/S Spangentechnik für eingewachsene Fußnägel",
     price: "29 €",
-    duration: "ca. 30-45 Min.",
+    duration: "ca. 10 Min.",
     icon: "🔧",
     note: "Ohne Fußpflege",
   },
@@ -107,6 +107,14 @@ export const SERVICES = [
     price: "15 €",
     duration: "ca. 15-20 Min.",
     icon: "🧴",
+  },
+  {
+    id: "nagelmodellage",
+    title: "Nagelmodellage mit Gel",
+    description: "Professionelle Gel-Nagelmodellage für gepflegte und schöne Hände",
+    price: "45 €",
+    duration: "ca. 60 Min.",
+    icon: "💅",
   },
 ] as const;
 
