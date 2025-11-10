@@ -6,7 +6,7 @@ export default function Services() {
   const services = [
     {
       icon: '🦠',
-      title: 'Nagelpilz-Behandlung',
+      title: 'Präventive Nagelpilz-Behandlung',
       description: 'Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden.',
       duration: '45-60 Min.',
       price: '60 €',
@@ -57,7 +57,7 @@ export default function Services() {
     },
     {
       icon: '🔧',
-      title: 'B/S Spangentechnik',
+      title: 'Präventive B/S Spangentechnik',
       description: 'Innovative Korrekturspange für eingewachsene Fußnägel - schmerzfrei und effektiv.',
       duration: '30-45 Min.',
       price: '29 €',

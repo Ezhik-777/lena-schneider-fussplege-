@@ -38,7 +38,7 @@ export default function ImpressumPage() {
               </h2>
               <div className="space-y-2 text-gray-700">
                 <p className="font-semibold">Fußpflege Lena Schneider</p>
-                <p>Inhaberin: Lena Schneider</p>
+                <p>Inhaberin: Elena Schneider</p>
                 <p>Brunnenstraße 25</p>
                 <p>74343 Sachsenheim</p>
               </div>
@@ -77,34 +77,19 @@ export default function ImpressumPage() {
             {/* Umsatzsteuer */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Umsatzsteuer
+                Umsatzsteuer-Identifikationsnummer
               </h2>
-              <div className="text-gray-700">
+              <div className="text-gray-700 space-y-3">
                 <p>
-                  Kleinunternehmer gemäß § 19 UStG - es wird keine Umsatzsteuer berechnet.
+                  Gemäß § 19 Abs. 1 Umsatzsteuergesetz (UStG) wird die Umsatzsteuer
+                  nicht erhoben (Kleinunternehmerregelung).
                 </p>
-              </div>
-            </section>
-
-            {/* Zuständige Kammer */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Zuständige Aufsichtsbehörde
-              </h2>
-              <div className="text-gray-700">
-                <p>Gesundheitsamt Ludwigsburg</p>
-                <p>Hindenburgstraße 20/1</p>
-                <p>71638 Ludwigsburg</p>
-                <p className="mt-2">
-                  Website:{' '}
-                  <a
-                    href="https://www.landkreis-ludwigsburg.de"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-600 hover:text-primary-700 underline"
-                  >
-                    www.landkreis-ludwigsburg.de
-                  </a>
+                <p>
+                  Aufgrund der Anwendung der Kleinunternehmerregelung wird in Rechnungen
+                  keine Umsatzsteuer ausgewiesen.
+                </p>
+                <p className="text-sm italic text-gray-600">
+                  Eine Umsatzsteuer-Identifikationsnummer (USt-IdNr.) ist daher nicht vorhanden.
                 </p>
               </div>
             </section>

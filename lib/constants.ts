@@ -5,7 +5,7 @@
 
 export const BUSINESS_INFO = {
   name: "Fußpflege Sachsenheim",
-  owner: "Lena", // Полное имя владелицы добавить в Impressum
+  owner: "Elena Schneider",
 
   contact: {
     phone: "+49 176 34237368",
@@ -49,9 +49,10 @@ export const BUSINESS_INFO = {
   },
 
   legal: {
-    vatId: "", // USt-IdNr. falls vorhanden
-    registrationCourt: "", // Registergericht falls vorhanden
-    registrationNumber: "", // Registernummer falls vorhanden
+    vatId: null, // Keine USt-IdNr. - Kleinunternehmer gemäß § 19 UStG
+    kleinunternehmer: true, // Kleinunternehmerregelung nach § 19 UStG
+    registrationCourt: null, // Nicht erforderlich für Einzelunternehmer
+    registrationNumber: null, // Nicht erforderlich für Einzelunternehmer
   },
 } as const;
 
@@ -59,7 +60,7 @@ export const BUSINESS_INFO = {
 export const SERVICES = [
   {
     id: "nagelpilz",
-    title: "Nagelpilz-Behandlung",
+    title: "Präventive Nagelpilz-Behandlung",
     description: "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
     price: "60 €",
     duration: "ca. 45-60 Min.",
@@ -92,7 +93,7 @@ export const SERVICES = [
   },
   {
     id: "spange",
-    title: "B/S Spangentechnik",
+    title: "Präventive B/S Spangentechnik",
     description: "Nagelkorrektur mit der bewährten B/S Spangentechnik für eingewachsene Fußnägel",
     price: "29 €",
     duration: "ca. 30-45 Min.",

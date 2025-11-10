@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Fußpflege Sachsenheim | Lena Schneider | Kosmetische Fußpflege & Pediküre",
     template: "%s | Fußpflege Lena Schneider Sachsenheim"
   },
-  description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368 ✓ Brunnenstraße 25",
+  description: "Professionelle kosmetische Fußpflege in Sachsenheim ✓ Präventive Nagelpilzbehandlung ✓ Präventive B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368 ✓ Brunnenstraße 25",
   keywords: [
     // Primäre Keywords
     "Fußpflege Sachsenheim",
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     "Pediküre Sachsenheim",
 
     // Service Keywords
-    "Nagelpilz Behandlung Sachsenheim",
-    "B/S Spangentechnik Sachsenheim",
+    "Präventive Nagelpilz Behandlung Sachsenheim",
+    "Präventive B/S Spangentechnik Sachsenheim",
     "Fußreflexzonenmassage Sachsenheim",
     "Smart Pediküre Sachsenheim",
     "Klassische Fußpflege Sachsenheim",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     url: "https://fusspflege-lena-schneider.de",
     siteName: "Fußpflege Lena Schneider Sachsenheim",
     title: "Fußpflege Sachsenheim | Lena Schneider | Kosmetische Fußpflege & Pediküre",
-    description: "⭐ Professionelle kosmetische Fußpflege in Sachsenheim ✓ Nagelpilzbehandlung ✓ B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368",
+    description: "⭐ Professionelle kosmetische Fußpflege in Sachsenheim ✓ Präventive Nagelpilzbehandlung ✓ Präventive B/S Spangentechnik ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung ☎ +49 176 34237368",
     images: [
       {
         url: "/og-image.jpg",

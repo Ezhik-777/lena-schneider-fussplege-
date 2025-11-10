@@ -85,7 +85,7 @@ export default function StructuredData() {
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
-            "name": "Nagelpilz-Behandlung",
+            "name": "Präventive Nagelpilz-Behandlung",
             "description": "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
             "provider": {
               "@id": "https://fusspflege-lena-schneider.de/#business"
@@ -141,7 +141,7 @@ export default function StructuredData() {
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
-            "name": "B/S Spangentechnik",
+            "name": "Präventive B/S Spangentechnik",
             "description": "Nagelkorrektur mit der bewährten B/S Spangentechnik für eingewachsene Fußnägel",
             "provider": {
               "@id": "https://fusspflege-lena-schneider.de/#business"
@@ -196,7 +196,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": "https://fusspflege-lena-schneider.de/#person",
-    "name": "Lena Schneider",
+    "name": "Elena Schneider",
     "jobTitle": "Fußpflegerin",
     "worksFor": {
       "@id": "https://fusspflege-lena-schneider.de/#organization"

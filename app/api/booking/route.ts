@@ -22,12 +22,21 @@ function isValidEmail(email: string): boolean {
   return emailRegex.test(email) && email.length <= 254;
 }
 
-// Validate phone number (German format)
+// Validate phone number (flexible international format)
 function isValidPhone(phone: string): boolean {
-  // Allow German phone formats: +49..., 0049..., or 0...
-  const phoneRegex = /^(\+49|0049|0)[1-9][0-9]{1,14}$/;
+  // Remove all formatting characters (spaces, dashes, parentheses, slashes)
   const cleanPhone = phone.replace(/[\s\-\/()]/g, '');
-  return phoneRegex.test(cleanPhone) && cleanPhone.length >= 6 && cleanPhone.length <= 16;
+
+  // Check if it contains only numbers and optionally starts with +
+  if (!/^\+?[0-9]+$/.test(cleanPhone)) {
+    return false;
+  }
+
+  // Get just the digits (without +)
+  const digits = cleanPhone.replace(/^\+/, '');
+
+  // Check minimum and maximum length
+  return digits.length >= 6 && digits.length <= 15;
 }
 
 // Rate limiting check
@@ -134,7 +143,10 @@ export async function POST(request: NextRequest) {
     // Validate phone if provided
     if (sanitizedData.telefon && !isValidPhone(sanitizedData.telefon)) {
       return NextResponse.json(
-        { message: 'Ungültige Telefonnummer. Bitte verwenden Sie ein deutsches Format.' },
+        {
+          message: 'Ungültige Telefonnummer',
+          error: 'Die Telefonnummer muss 6-15 Ziffern enthalten und darf nur Zahlen, +, Leerzeichen, - und () beinhalten.'
+        },
         { status: 400 }
       );
     }

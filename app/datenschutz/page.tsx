@@ -117,7 +117,7 @@ export default function DatenschutzPage() {
               </p>
               <div className="bg-gray-50 p-4 rounded-lg my-4">
                 <p className="font-semibold">Fußpflege Lena Schneider</p>
-                <p>Inhaberin: Lena Schneider</p>
+                <p>Inhaberin: Elena Schneider</p>
                 <p>Brunnenstraße 25</p>
                 <p>74343 Sachsenheim</p>
                 <p className="mt-2">
@@ -256,58 +256,148 @@ export default function DatenschutzPage() {
               </h2>
 
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Vercel Analytics & Speed Insights
+              </h3>
+              <p>
+                Diese Website nutzt Vercel Analytics und Speed Insights zur Analyse der
+                Website-Performance und des Nutzerverhaltens. Anbieter ist Vercel Inc.,
+                440 N Barranca Ave #4133, Covina, CA 91723, USA.
+              </p>
+              <p className="mt-3">
+                Vercel Analytics erfasst anonymisierte Daten über Seitenaufrufe, Performance-Metriken
+                und Nutzerinteraktionen. Die Daten werden ausschließlich in aggregierter Form
+                gespeichert und können nicht zur Identifizierung einzelner Nutzer verwendet werden.
+              </p>
+              <p className="mt-3">
+                <strong>Erfasste Daten:</strong>
+              </p>
+              <ul className="list-disc list-inside space-y-1 mt-3">
+                <li>Seitenaufrufe und Navigationspfade</li>
+                <li>Ladezeiten und Performance-Metriken</li>
+                <li>Gerätetyp und Bildschirmauflösung</li>
+                <li>Geografische Region (Land/Stadt)</li>
+                <li>Referrer-URL</li>
+              </ul>
+              <p className="mt-3">
+                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
+                an der Analyse und Optimierung unseres Webangebots).
+              </p>
+              <p className="mt-3">
+                Mehr Informationen zum Datenschutz bei Vercel:{' '}
+                <a
+                  href="https://vercel.com/legal/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 underline"
+                >
+                  https://vercel.com/legal/privacy-policy
+                </a>
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">
+                Google Analytics
+              </h3>
+              <p>
+                Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland
+                Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.
+              </p>
+              <p className="mt-3">
+                Google Analytics verwendet Cookies, um die Nutzung der Website zu analysieren.
+                Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website
+                werden in der Regel an einen Server von Google in den USA übertragen und dort
+                gespeichert.
+              </p>
+              <p className="mt-3">
+                <strong>IP-Anonymisierung:</strong> Wir haben auf dieser Website die IP-Anonymisierung
+                aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der
+                Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen
+                Wirtschaftsraum vor der Übermittlung in die USA gekürzt.
+              </p>
+              <p className="mt-3">
+                <strong>Rechtsgrundlage:</strong> Die Nutzung von Google Analytics erfolgt auf
+                Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes
+                Interesse an der Analyse des Nutzerverhaltens, um sein Webangebot zu optimieren.
+              </p>
+              <p className="mt-3">
+                <strong>Browser Plugin:</strong> Sie können die Speicherung der Cookies durch eine
+                entsprechende Einstellung Ihrer Browser-Software verhindern. Sie können darüber hinaus
+                die Erfassung der durch das Cookie erzeugten Daten an Google sowie die Verarbeitung
+                dieser Daten durch Google verhindern, indem Sie das Browser-Plugin herunterladen und
+                installieren:{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 underline"
+                >
+                  https://tools.google.com/dlpage/gaoptout
+                </a>
+              </p>
+              <p className="mt-3">
+                Mehr Informationen zum Datenschutz bei Google Analytics:{' '}
+                <a
+                  href="https://support.google.com/analytics/answer/6004245"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 underline"
+                >
+                  https://support.google.com/analytics/answer/6004245
+                </a>
+              </p>
+
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">
                 Telegram Bot API (Terminbenachrichtigungen)
               </h3>
               <p>
-                Wir verwenden die Telegram Bot API zur sofortigen Benachrichtigung über
-                Terminanfragen. Telegram ist ein Dienst der Telegram Messenger LLP,
-                71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, Vereinigtes Königreich.
+                Zur sofortigen Benachrichtigung über Terminanfragen verwenden wir die Telegram Bot API.
+                Telegram ist ein Dienst der Telegram Messenger LLP, 71-75 Shelton Street, Covent Garden,
+                London, WC2H 9JQ, Vereinigtes Königreich.
               </p>
               <p className="mt-3">
-                Wenn Sie eine Terminanfrage über unser Kontaktformular senden, werden
-                folgende Daten verschlüsselt an die Telegram API übermittelt:
+                Wenn Sie eine Terminanfrage über unser Kontaktformular absenden, werden die eingegebenen
+                Daten direkt von unserem Server (Vercel) verschlüsselt an die Telegram Bot API übermittelt:
               </p>
               <ul className="list-disc list-inside space-y-1 mt-3">
                 <li>Vor- und Nachname</li>
                 <li>Telefonnummer</li>
-                <li>E-Mail-Adresse</li>
+                <li>E-Mail-Adresse (falls angegeben)</li>
                 <li>Gewünschte Leistung</li>
-                <li>Wunschtermin und Nachricht</li>
+                <li>Wunschtermin und Uhrzeit</li>
+                <li>Nachricht</li>
               </ul>
               <p className="mt-3">
-                Die Daten werden ausschließlich zur Bearbeitung Ihrer Terminanfrage verwendet
-                und nicht für andere Zwecke gespeichert oder weitergegeben. Die Übertragung
-                erfolgt verschlüsselt über HTTPS.
+                Die Übertragung erfolgt ausschließlich verschlüsselt über HTTPS. Die Daten werden
+                nur zur Bearbeitung Ihrer Terminanfrage verwendet und nicht für andere Zwecke
+                gespeichert oder an Dritte weitergegeben.
               </p>
               <p className="mt-3">
-                Rechtsgrundlage: Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b
-                DSGVO zur Durchführung vorvertraglicher Maßnahmen (Terminvereinbarung).
+                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Durchführung
+                vorvertraglicher Maßnahmen auf Ihre Anfrage).
               </p>
               <p className="mt-3">
-                Mehr Informationen zum Datenschutz bei Telegram finden Sie unter:{' '}
+                <strong>Speicherort:</strong> Die Daten werden über unseren Hosting-Provider Vercel
+                verarbeitet und anschließend an Telegram übermittelt. Vercel hostet unsere Website
+                auf Servern in der EU.
+              </p>
+              <p className="mt-3">
+                Mehr Informationen zum Datenschutz:{' '}
                 <a
                   href="https://telegram.org/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-600 hover:text-primary-700 underline"
                 >
-                  https://telegram.org/privacy
+                  Telegram Datenschutz
                 </a>
-              </p>
-
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">
-                Google Analytics (optional)
-              </h3>
-              <p>
-                Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics.
-                Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow
-                Street, Dublin 4, Irland.
-              </p>
-              <p className="mt-3">
-                <em>
-                  (Hinweis: Dieser Abschnitt ist nur relevant, wenn Sie Google Analytics
-                  nutzen möchten. Ansonsten können Sie ihn entfernen.)
-                </em>
+                {' | '}
+                <a
+                  href="https://vercel.com/legal/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 underline"
+                >
+                  Vercel Datenschutz
+                </a>
               </p>
             </section>
 

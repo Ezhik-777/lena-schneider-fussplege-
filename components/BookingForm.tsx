@@ -20,6 +20,7 @@ interface BookingFormData {
 export default function BookingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const {
     register,
@@ -50,9 +51,9 @@ export default function BookingForm() {
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
-      // Airtable API integration
       const response = await fetch('/api/booking', {
         method: 'POST',
         headers: {
@@ -63,6 +64,7 @@ export default function BookingForm() {
 
       if (response.ok) {
         setSubmitStatus('success');
+        setErrorMessage('');
         reset();
         // Scroll to success message
         setTimeout(() => {
@@ -70,11 +72,27 @@ export default function BookingForm() {
           if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 100);
       } else {
+        // Get error message from API
+        const errorData = await response.json();
         setSubmitStatus('error');
+        setErrorMessage(errorData.error || errorData.message || 'Ein unbekannter Fehler ist aufgetreten');
+
+        // Scroll to error message
+        setTimeout(() => {
+          const element = document.getElementById('error-message');
+          if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
       }
     } catch (error) {
       console.error('Booking error:', error);
       setSubmitStatus('error');
+      setErrorMessage('Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.');
+
+      // Scroll to error message
+      setTimeout(() => {
+        const element = document.getElementById('error-message');
+        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
     } finally {
       setIsSubmitting(false);
     }
@@ -122,15 +140,16 @@ export default function BookingForm() {
           {/* Error Message */}
           {submitStatus === 'error' && (
             <div
+              id="error-message"
               role="alert"
               aria-live="assertive"
-              className="mb-6 sm:mb-8 bg-red-50 border-l-4 border-red-500 rounded-xl p-5 sm:p-5 md:p-6 flex items-start space-x-3 sm:space-x-3"
+              className="mb-6 sm:mb-8 bg-red-50 border-l-4 border-red-500 rounded-xl p-5 sm:p-5 md:p-6 flex items-start space-x-3 sm:space-x-3 animate-in slide-in-from-top"
             >
               <AlertCircle className="text-red-500 flex-shrink-0 mt-0.5 w-6 h-6 sm:w-6 sm:h-6" aria-hidden="true" />
               <div>
                 <h3 className="text-[1rem] sm:text-base text-red-900 font-bold mb-1.5">Fehler beim Senden</h3>
                 <p className="text-[0.9375rem] sm:text-sm text-red-700 leading-relaxed">
-                  Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.
+                  {errorMessage || 'Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.'}
                 </p>
               </div>
             </div>
@@ -186,40 +205,78 @@ export default function BookingForm() {
                   </label>
                   <input
                     {...register('telefon', {
-                      required: 'Telefonnummer ist erforderlich',
-                      pattern: {
-                        value: /^[0-9+\s()-]+$/,
-                        message: 'Ungültige Telefonnummer',
+                      required: 'Bitte geben Sie Ihre Telefonnummer ein',
+                      validate: (value) => {
+                        // Remove all spaces, dashes, parentheses
+                        const cleaned = value.replace(/[\s\-()]/g, '');
+
+                        // Check if it contains only numbers and optionally starts with +
+                        if (!/^\+?[0-9]+$/.test(cleaned)) {
+                          return 'Telefonnummer darf nur Ziffern, +, Leerzeichen, - und () enthalten';
+                        }
+
+                        // Check minimum length (at least 6 digits without +)
+                        const digits = cleaned.replace(/^\+/, '');
+                        if (digits.length < 6) {
+                          return 'Telefonnummer muss mindestens 6 Ziffern enthalten';
+                        }
+
+                        // Check maximum length
+                        if (digits.length > 15) {
+                          return 'Telefonnummer darf maximal 15 Ziffern enthalten';
+                        }
+
+                        return true;
                       },
                     })}
                     type="tel"
                     id="telefon"
-                    className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px]"
-                    placeholder={BUSINESS_INFO.contact.phoneFormatted}
+                    disabled={isSubmitting}
+                    aria-invalid={!!errors.telefon}
+                    aria-describedby={errors.telefon ? 'telefon-error' : 'telefon-help'}
+                    className={`w-full px-4 py-4 text-[1rem] sm:text-base border-2 ${errors.telefon ? 'border-red-500' : 'border-gray-300'} rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    placeholder="+49 176 12345678"
                   />
                   {errors.telefon && (
-                    <p className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium">{errors.telefon.message}</p>
+                    <p id="telefon-error" role="alert" className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium flex items-start gap-1">
+                      <span className="text-base">⚠️</span>
+                      <span>{errors.telefon.message}</span>
+                    </p>
                   )}
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-[0.9375rem] sm:text-sm font-bold text-gray-900 mb-2">
-                    E-Mail
+                    E-Mail (optional)
                   </label>
                   <input
                     {...register('email', {
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Ungültige E-Mail-Adresse',
+                      validate: (value) => {
+                        // If empty, it's valid (optional field)
+                        if (!value || value.trim() === '') return true;
+
+                        // If filled, validate format
+                        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+                        if (!emailRegex.test(value)) {
+                          return 'Bitte geben Sie eine gültige E-Mail-Adresse ein (z.B. name@beispiel.de)';
+                        }
+
+                        return true;
                       },
                     })}
                     type="email"
                     id="email"
-                    className="w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px]"
+                    disabled={isSubmitting}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : 'email-help'}
+                    className={`w-full px-4 py-4 text-[1rem] sm:text-base border-2 ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                     placeholder="max@beispiel.de"
                   />
                   {errors.email && (
-                    <p className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium">{errors.email.message}</p>
+                    <p id="email-error" role="alert" className="mt-2 text-[0.875rem] sm:text-sm text-red-600 font-medium flex items-start gap-1">
+                      <span className="text-base">⚠️</span>
+                      <span>{errors.email.message}</span>
+                    </p>
                   )}
                 </div>
               </div>
