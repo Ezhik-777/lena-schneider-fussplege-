@@ -5,15 +5,16 @@ import { Clock, Euro } from 'lucide-react';
 export default function Services() {
   const services = [
     {
-      icon: '🦠',
-      title: 'Nagelpilz-Behandlung',
-      description: 'Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden.',
+      icon: '🌿',
+      title: 'Präventive Kosmetische Fußpflege',
+      description: 'Sanfte, kosmetische Behandlung zur Verbesserung des Haut- und Nagelbildes. Unterstützt die natürliche Regeneration und sorgt für hygienisch gepflegte Füße.',
       duration: '45-60 Min.',
       price: '60 €',
       features: [
-        'Schmerzfreie Behandlung',
-        'Ohne Chemie',
-        'Effektive Ergebnisse nach 6 Behandlungen',
+        'Verbesserung des Haut- und Nagelbildes',
+        'Natürliche Regeneration',
+        'Hygienisch gepflegte Füße',
+        'Präventive Pflege für gesunde, schöne Nägel',
       ],
     },
     {

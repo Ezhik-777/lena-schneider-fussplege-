@@ -6,7 +6,7 @@ export default function StructuredData() {
     "@id": "https://fusspflege-lena-schneider.de/#business",
     "name": "Fußpflege Lena Schneider",
     "alternateName": "Fußpflege Sachsenheim",
-    "description": "Professionelle kosmetische Fußpflege und Pediküre in Sachsenheim. Nagelpilz-Behandlung, B/S Spangentechnik, Smart Pediküre, Fußreflexzonenmassage. Termine nach Vereinbarung.",
+    "description": "Professionelle kosmetische Fußpflege und Pediküre in Sachsenheim. Präventive Kosmetische Fußpflege, B/S Spangentechnik, Smart Pediküre, Fußreflexzonenmassage. Termine nach Vereinbarung.",
     "url": "https://fusspflege-lena-schneider.de",
     "telephone": "+4917634237368",
     "email": "info@fusspflege-lena-schneider.de",
@@ -85,8 +85,8 @@ export default function StructuredData() {
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Service",
-            "name": "Nagelpilz-Behandlung",
-            "description": "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
+            "name": "Präventive Kosmetische Fußpflege",
+            "description": "Sanfte, kosmetische Behandlung zur Verbesserung des Haut- und Nagelbildes. Unterstützt die natürliche Regeneration und sorgt für hygienisch gepflegte Füße.",
             "provider": {
               "@id": "https://fusspflege-lena-schneider.de/#business"
             }
@@ -251,7 +251,7 @@ export default function StructuredData() {
         "name": "Was kostet eine Fußpflege in Sachsenheim?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Die Preise beginnen bei 29€ für B/S Spangentechnik. Eine klassische Fachfußpflege mit Peeling kostet 49€, Smart Pediküre 55€ und Nagelpilz-Behandlung 60€. Fußreflexzonenmassage ist für 35€ verfügbar."
+          "text": "Die Preise beginnen bei 29€ für B/S Spangentechnik. Eine klassische Fachfußpflege mit Peeling kostet 49€, Smart Pediküre 55€ und Präventive Kosmetische Fußpflege 60€. Fußreflexzonenmassage ist für 35€ verfügbar."
         }
       },
       {
@@ -267,7 +267,7 @@ export default function StructuredData() {
         "name": "Welche Leistungen bieten Sie an?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wir bieten klassische Fachfußpflege, Smart Pediküre, Nagelpilz-Behandlung, B/S Spangentechnik für eingewachsene Nägel, Fußreflexzonenmassage und Shellac-Behandlungen. Alle Behandlungen werden professionell und mit sterilen Instrumenten durchgeführt."
+          "text": "Wir bieten klassische Fachfußpflege, Smart Pediküre, Präventive Kosmetische Fußpflege, B/S Spangentechnik für eingewachsene Nägel, Fußreflexzonenmassage und Shellac-Behandlungen. Alle Behandlungen werden professionell und mit sterilen Instrumenten durchgeführt."
         }
       },
       {
@@ -275,7 +275,7 @@ export default function StructuredData() {
         "name": "Wie lange dauert eine Behandlung?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Eine klassische Fußpflege dauert ca. 45-60 Minuten, Smart Pediküre ca. 60 Minuten, Fußreflexzonenmassage ca. 30 Minuten. Nagelpilz-Behandlungen dauern 45-60 Minuten."
+          "text": "Eine klassische Fußpflege dauert ca. 45-60 Minuten, Smart Pediküre ca. 60 Minuten, Fußreflexzonenmassage ca. 30 Minuten. Präventive Kosmetische Fußpflege dauert 45-60 Minuten."
         }
       },
       {

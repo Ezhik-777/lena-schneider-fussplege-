@@ -52,7 +52,7 @@ export default function BookingForm() {
     setSubmitStatus('idle');
 
     try {
-      // Airtable API integration
+      // Submit booking request via API
       const response = await fetch('/api/booking', {
         method: 'POST',
         headers: {
