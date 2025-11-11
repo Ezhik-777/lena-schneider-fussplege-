@@ -95,7 +95,7 @@ export default function Footer() {
             <h3 className="text-white text-lg font-bold mb-4">Unsere Leistungen</h3>
             <ul className="space-y-3 text-sm">
               <li className="hover:text-primary-400 transition-colors">
-                Nagelpilz-Behandlung
+                Präventive Kosmetische Fußpflege
               </li>
               <li className="hover:text-primary-400 transition-colors">
                 Smart Pediküre

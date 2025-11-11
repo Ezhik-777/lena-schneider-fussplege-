@@ -59,12 +59,12 @@ export const BUSINESS_INFO = {
 // Service-Kategorien
 export const SERVICES = [
   {
-    id: "nagelpilz",
-    title: "Präventive Nagelpilz-Behandlung",
-    description: "Schmerzfrei, ohne Chemie und effektiv: Bereits nach nur sechs Behandlungen kann der Pilz vollständig beseitigt werden",
+    id: "praventive-fusspflege",
+    title: "Präventive Kosmetische Fußpflege",
+    description: "Sanfte, kosmetische Behandlung zur Verbesserung des Haut- und Nagelbildes. Unterstützt die natürliche Regeneration und sorgt für hygienisch gepflegte Füße.",
     price: "60 €",
     duration: "ca. 20 Min.",
-    icon: "🦠",
+    icon: "🌿",
   },
   {
     id: "smart-pediküre",
