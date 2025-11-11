@@ -2,8 +2,33 @@
 
 import { Clock, Euro } from 'lucide-react';
 
+// Type definitions for services
+interface ServiceBase {
+  icon: string;
+  title: string;
+  description: string;
+  duration: string;
+  price: string;
+  features: string[];
+  note?: string;
+}
+
+interface SimpleService extends ServiceBase {
+  priceDetails?: false;
+}
+
+interface PriceOptionsService extends ServiceBase {
+  priceDetails: true;
+  priceOptions: Array<{
+    label: string;
+    price: string;
+  }>;
+}
+
+type Service = SimpleService | PriceOptionsService;
+
 export default function Services() {
-  const services = [
+  const services: Service[] = [
     {
       icon: '🌿',
       title: 'Präventive Kosmetische Fußpflege',
@@ -173,14 +198,14 @@ export default function Services() {
                 {/* Divider */}
                 <div className="border-t border-gray-200 pt-4 sm:pt-4 mt-auto">
                   {/* Price Options for Paraffinbehandlung */}
-                  {(service as any).priceOptions ? (
+                  {'priceOptions' in service && service.priceDetails ? (
                     <>
                       <div className="flex items-center space-x-2 sm:space-x-2 text-[0.875rem] sm:text-sm text-gray-600 font-medium mb-3">
                         <Clock size={16} className="sm:w-4 sm:h-4" />
                         <span>{service.duration}</span>
                       </div>
                       <div className="space-y-2">
-                        {(service as any).priceOptions.map((option: any, idx: number) => (
+                        {service.priceOptions.map((option, idx) => (
                           <div key={idx} className="flex items-center justify-between bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg px-3 py-2">
                             <span className="text-[0.875rem] sm:text-sm font-semibold text-gray-700">{option.label}</span>
                             <span className="text-[1rem] sm:text-base font-bold text-primary-600">{option.price}</span>

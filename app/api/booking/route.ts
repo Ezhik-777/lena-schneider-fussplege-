@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import '@/lib/env'; // Validate environment variables
 
 // Rate limiting: Simple in-memory store (for production, use Redis or similar)
 // Updated: 2025-11-09 - Increased limit for testing
@@ -7,13 +8,19 @@ const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
 const MAX_SUBMISSIONS_PER_HOUR = 20; // Temporarily increased for testing
 
 // Helper function to sanitize string inputs (XSS prevention)
-function sanitizeString(input: string): string {
+// allowApostrophe: allow single quotes for names like O'Connor, D'Angelo
+function sanitizeString(input: string, allowApostrophe: boolean = false): string {
+  const dangerousCharsRegex = allowApostrophe
+    ? /[<>\"` ]/g  // Allow single quotes for names
+    : /[<>\"'`]/g; // Remove all quote types
+
   return input
     .trim()
     .slice(0, 500) // Limit length to prevent abuse
-    .replace(/[<>\"'`]/g, '') // Remove potentially dangerous characters
+    .replace(dangerousCharsRegex, '')
     .replace(/javascript:/gi, '') // Remove javascript: protocol
-    .replace(/on\w+=/gi, ''); // Remove event handlers
+    .replace(/on\w+=/gi, '') // Remove event handlers
+    .replace(/<script/gi, ''); // Remove script tags
 }
 
 // Validate email format
@@ -63,6 +70,14 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
+// Allowed origins for CORS
+const ALLOWED_ORIGINS = [
+  'https://fusspflege-lena-schneider.de',
+  'https://www.fusspflege-lena-schneider.de',
+  'http://localhost:3000',
+  'http://localhost:3001'
+];
+
 export async function POST(request: NextRequest) {
   try {
     // Get client IP for rate limiting
@@ -78,14 +93,8 @@ export async function POST(request: NextRequest) {
 
     // Check origin for CSRF protection
     const origin = request.headers.get('origin');
-    const allowedOrigins = [
-      'https://fusspflege-lena-schneider.de',
-      'https://www.fusspflege-lena-schneider.de',
-      'http://localhost:3000',
-      'http://localhost:3001'
-    ];
 
-    if (origin && !allowedOrigins.includes(origin)) {
+    if (origin && !ALLOWED_ORIGINS.includes(origin)) {
       return NextResponse.json(
         { message: 'Zugriff verweigert' },
         { status: 403 }
@@ -104,7 +113,7 @@ export async function POST(request: NextRequest) {
     const data = await request.json();
 
     // Honeypot check - if honeypot field is filled, it's a bot
-    if (data.website || data.url || data.honeypot) {
+    if (data.website || data.url || data.honeypot || data.phone_verify) {
       // Silently accept but don't process (anti-bot)
       return NextResponse.json(
         { message: 'Terminanfrage erfolgreich gesendet' },
@@ -114,14 +123,14 @@ export async function POST(request: NextRequest) {
 
     // Validate and sanitize inputs
     const sanitizedData = {
-      vorname: sanitizeString(data.vorname || ''),
-      nachname: sanitizeString(data.nachname || ''),
+      vorname: sanitizeString(data.vorname || '', true), // Allow apostrophes in names
+      nachname: sanitizeString(data.nachname || '', true), // Allow apostrophes in names
       telefon: sanitizeString(data.telefon || ''),
       email: sanitizeString(data.email || ''),
       leistung: sanitizeString(data.leistung || ''),
       wunschtermin: data.wunschtermin || '',
       wunschuhrzeit: sanitizeString(data.wunschuhrzeit || ''),
-      nachricht: sanitizeString(data.nachricht || ''),
+      nachricht: sanitizeString(data.nachricht || '', true), // Allow apostrophes in messages
     };
 
     // Validate required fields (only Vorname and Telefon are required)
@@ -268,7 +277,9 @@ export async function POST(request: NextRequest) {
       }
 
       const successData = await telegramResponse.json();
-      console.log('Telegram message sent successfully:', successData.result?.message_id);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Telegram message sent successfully:', successData.result?.message_id);
+      }
     } catch (error) {
       clearTimeout(timeoutId);
       // Log error but don't expose details to user
@@ -276,16 +287,56 @@ export async function POST(request: NextRequest) {
       throw error;
     }
 
-    return NextResponse.json(
+    // Success response with CORS headers
+    const successResponse = NextResponse.json(
       { message: 'Terminanfrage erfolgreich gesendet' },
       { status: 200 }
     );
+
+    if (origin && ALLOWED_ORIGINS.includes(origin)) {
+      successResponse.headers.set('Access-Control-Allow-Origin', origin);
+      successResponse.headers.set('Access-Control-Allow-Methods', 'POST');
+      successResponse.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+    }
+
+    return successResponse;
   } catch (error) {
     // Generic error message - don't expose internal details
     console.error('Booking error:', error instanceof Error ? error.message : 'Unknown error');
-    return NextResponse.json(
+
+    // Get origin from request for CORS headers
+    const origin = request.headers.get('origin');
+
+    const errorResponse = NextResponse.json(
       { message: 'Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.' },
       { status: 500 }
     );
+
+    if (origin && ALLOWED_ORIGINS.includes(origin)) {
+      errorResponse.headers.set('Access-Control-Allow-Origin', origin);
+      errorResponse.headers.set('Access-Control-Allow-Methods', 'POST');
+      errorResponse.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+    }
+
+    return errorResponse;
   }
+}
+
+// Handle OPTIONS preflight requests
+export async function OPTIONS(request: NextRequest) {
+  const origin = request.headers.get('origin');
+
+  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+    return new NextResponse(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': origin,
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '86400',
+      },
+    });
+  }
+
+  return new NextResponse(null, { status: 403 });
 }

@@ -366,13 +366,13 @@ export default function BookingForm() {
             </div>
 
             {/* Honeypot - Anti-bot field (hidden from users) */}
-            <div className="hidden" aria-hidden="true">
-              <label htmlFor="website">Website (do not fill)</label>
+            <div className="hidden" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', height: 0, width: 0 }}>
+              <label htmlFor="phone_verify">Telefon bestätigen</label>
               <input
-                {...register('website' as any)}
+                {...register('phone_verify' as any)}
                 type="text"
-                id="website"
-                name="website"
+                id="phone_verify"
+                name="phone_verify"
                 autoComplete="off"
                 tabIndex={-1}
               />

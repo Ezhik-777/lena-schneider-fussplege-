@@ -45,7 +45,9 @@ export default function CookieConsent() {
     // if (process.env.NEXT_PUBLIC_GA_ID) {
     //   // Load GA script
     // }
-    console.log('Analytics enabled');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Analytics enabled');
+    }
   };
 
   const savePreferences = (prefs: CookiePreferences) => {
