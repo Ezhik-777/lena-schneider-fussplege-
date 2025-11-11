@@ -316,14 +316,14 @@ export default function BookingForm() {
                       validate: (value) => {
                         if (!value) return true; // Optional field
                         const selectedDate = new Date(value);
-                        const today = new Date();
-                        today.setHours(0, 0, 0, 0);
-                        return selectedDate >= today || 'Datum darf nicht in der Vergangenheit liegen';
+                        const minDate = new Date('2025-11-17');
+                        minDate.setHours(0, 0, 0, 0);
+                        return selectedDate >= minDate || 'Buchungen sind ab dem 17.11.2025 möglich';
                       }
                     })}
                     type="date"
                     id="wunschtermin"
-                    min={new Date().toISOString().split('T')[0]}
+                    min="2025-11-17"
                     disabled={isSubmitting}
                     className={`w-full px-4 py-4 text-[1rem] sm:text-base border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all min-h-[52px] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   />

@@ -92,6 +92,25 @@ export default function Services() {
         'Verschiedene Designs möglich',
       ],
     },
+    {
+      icon: '💅',
+      title: 'Kosmetische Paraffinbehandlung',
+      description: 'Wohltuende Wärmebehandlung für gepflegte, geschmeidige Haut. Das Paraffinbad spendet intensive Feuchtigkeit und macht Hände oder Füße wunderbar weich. Ideal bei trockener oder beanspruchter Haut – für ein spürbar zartes Hautgefühl.',
+      duration: '20 Min.',
+      price: 'ab 19',
+      priceDetails: true,
+      note: 'Nur kosmetische Pflegebehandlung – keine medizinische Anwendung',
+      features: [
+        'Intensive Feuchtigkeitspflege',
+        'Wunderbar weiche Haut',
+        'Ideal bei trockener Haut',
+      ],
+      priceOptions: [
+        { label: '👐 Hände', price: '19 €' },
+        { label: '🦶 Füße', price: '19 €' },
+        { label: '✨ Kombi', price: '35 €' },
+      ],
+    },
   ];
 
   return (
@@ -119,7 +138,7 @@ export default function Services() {
             <div
               key={index}
               className={`bg-white rounded-2xl sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col ${
-                index === services.length - 1 ? 'sm:col-span-2 lg:col-span-1 sm:mx-auto sm:max-w-md lg:col-start-2' : ''
+                index >= services.length - 2 && index === services.length - 2 ? 'lg:col-start-2' : ''
               }`}
             >
               {/* Card Header */}
@@ -155,16 +174,34 @@ export default function Services() {
 
                 {/* Divider */}
                 <div className="border-t border-gray-200 pt-4 sm:pt-4 mt-auto">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2 sm:space-x-2 text-[0.875rem] sm:text-sm text-gray-600 font-medium">
-                      <Clock size={16} className="sm:w-4 sm:h-4" />
-                      <span>{service.duration}</span>
+                  {/* Price Options for Paraffinbehandlung */}
+                  {(service as any).priceOptions ? (
+                    <>
+                      <div className="flex items-center space-x-2 sm:space-x-2 text-[0.875rem] sm:text-sm text-gray-600 font-medium mb-3">
+                        <Clock size={16} className="sm:w-4 sm:h-4" />
+                        <span>{service.duration}</span>
+                      </div>
+                      <div className="space-y-2">
+                        {(service as any).priceOptions.map((option: any, idx: number) => (
+                          <div key={idx} className="flex items-center justify-between bg-gradient-to-r from-primary-50 to-accent-50 rounded-lg px-3 py-2">
+                            <span className="text-[0.875rem] sm:text-sm font-semibold text-gray-700">{option.label}</span>
+                            <span className="text-[1rem] sm:text-base font-bold text-primary-600">{option.price}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2 sm:space-x-2 text-[0.875rem] sm:text-sm text-gray-600 font-medium">
+                        <Clock size={16} className="sm:w-4 sm:h-4" />
+                        <span>{service.duration}</span>
+                      </div>
+                      <div className="flex items-center space-x-1 text-[1.125rem] sm:text-lg font-bold text-primary-600">
+                        <Euro size={18} className="sm:w-[18px] sm:h-[18px]" />
+                        <span>{service.price.replace('ab ', '').replace(' €', '')}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center space-x-1 text-[1.125rem] sm:text-lg font-bold text-primary-600">
-                      <Euro size={18} className="sm:w-[18px] sm:h-[18px]" />
-                      <span>{service.price.replace('ab ', '').replace(' €', '')}</span>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>

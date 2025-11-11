@@ -116,6 +116,15 @@ export const SERVICES = [
     duration: "ca. 60 Min.",
     icon: "💅",
   },
+  {
+    id: "paraffinbehandlung",
+    title: "Kosmetische Paraffinbehandlung",
+    description: "Wohltuende Wärmebehandlung für gepflegte, geschmeidige Haut. Das Paraffinbad spendet intensive Feuchtigkeit und macht Hände oder Füße wunderbar weich. Ideal bei trockener oder beanspruchter Haut – für ein spürbar zartes Hautgefühl.",
+    price: "Hände: 19 € | Füße: 19 € | Kombi: 35 €",
+    duration: "ca. 20 Min.",
+    icon: "💅",
+    note: "Nur kosmetische Pflegebehandlung – keine medizinische Anwendung",
+  },
 ] as const;
 
 // Öffnungszeiten strukturiert
