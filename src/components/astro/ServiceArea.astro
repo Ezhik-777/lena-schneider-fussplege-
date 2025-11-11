@@ -1,0 +1,188 @@
+---
+// ServiceArea component - fully static, no JavaScript needed
+
+// Business info constants
+const BUSINESS_INFO = {
+  name: "Fußpflege Sachsenheim",
+  contact: {
+    phoneFormatted: "+49 176 34237368",
+    phoneHref: "tel:+4917634237368",
+    email: "info@fusspflege-lena-schneider.de",
+    emailHref: "mailto:info@fusspflege-lena-schneider.de",
+  },
+  address: {
+    street: "Brunnenstraße 25",
+    postalCode: "74343",
+    city: "Sachsenheim",
+    fullAddress: "Brunnenstraße 25, 74343 Sachsenheim",
+  },
+};
+
+// SVG icons as strings for static rendering
+const icons = {
+  mapPin: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
+  smartphone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>',
+  mail: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+  clock: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+};
+---
+
+<section id="service-area" class="bg-white">
+  <div class="container px-5 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
+      <!-- Content -->
+      <div class="space-y-5 sm:space-y-6">
+        <div class="inline-block">
+          <span class="text-primary-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-primary-50 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+            Unser Salon
+          </span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+          Besuchen Sie uns <span class="text-primary-600">in Sachsenheim</span>
+        </h2>
+        <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+          Unser gemütlicher Salon befindet sich in Sachsenheim.
+          Kommen Sie vorbei und genießen Sie professionelle Fußpflege in
+          entspannter Atmosphäre.
+        </p>
+
+        <!-- Salon Info Cards -->
+        <div class="space-y-3 sm:space-y-4 pt-4 sm:pt-6">
+          <!-- Address -->
+          <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-primary-50 rounded-lg touch-manipulation">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-white" set:html={icons.mapPin} />
+            </div>
+            <div>
+              <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Adresse</h3>
+              <p class="text-xs sm:text-sm text-gray-700 leading-snug">
+                {BUSINESS_INFO.address.street}<br />
+                {BUSINESS_INFO.address.postalCode} {BUSINESS_INFO.address.city}
+              </p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-accent-50 rounded-lg touch-manipulation">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-accent-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-white" set:html={icons.smartphone} />
+            </div>
+            <div>
+              <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">Telefon</h3>
+              <a
+                href={BUSINESS_INFO.contact.phoneHref}
+                class="text-accent-700 hover:text-accent-800 font-semibold text-xs sm:text-sm"
+                aria-label={`Telefonnummer ${BUSINESS_INFO.contact.phoneFormatted} anrufen`}
+              >
+                {BUSINESS_INFO.contact.phoneFormatted}
+              </a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 rounded-lg touch-manipulation">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-white" set:html={icons.mail} />
+            </div>
+            <div>
+              <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1">E-Mail</h3>
+              <a
+                href={BUSINESS_INFO.contact.emailHref}
+                class="text-gray-700 hover:text-gray-900 text-xs sm:text-sm break-all"
+                aria-label={`E-Mail an ${BUSINESS_INFO.contact.email} senden`}
+              >
+                {BUSINESS_INFO.contact.email}
+              </a>
+            </div>
+          </div>
+
+          <!-- Opening Hours -->
+          <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-primary-50 rounded-lg touch-manipulation">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span class="text-white" set:html={icons.clock} />
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold text-sm sm:text-base text-gray-900 mb-1 sm:mb-2">Terminvereinbarung</h3>
+              <div class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-700">
+                <p class="font-semibold text-primary-700">Nur nach Terminvereinbarung</p>
+                <p class="text-gray-600 text-xs sm:text-sm leading-snug">
+                  Behandlungen finden ausschließlich nach vorheriger Terminabsprache statt.
+                </p>
+                <div class="pt-1.5 sm:pt-2 space-y-0.5 sm:space-y-1">
+                  <p class="text-xs text-gray-600">
+                    <strong>Mögliche Zeiten:</strong>
+                  </p>
+                  <p class="text-xs text-gray-600">Mo - Fr: 09:00 - 18:00 Uhr</p>
+                  <p class="text-xs text-gray-600">Sa: 09:00 - 14:00 Uhr</p>
+                  <p class="text-xs text-gray-600 italic mt-1 sm:mt-2">
+                    * Termine außerhalb dieser Zeiten nach Absprache möglich
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 sm:pt-6 space-y-3 sm:space-y-4">
+          <div class="bg-accent-50 border-l-4 border-accent-600 p-3 sm:p-4 rounded">
+            <p class="text-xs sm:text-sm text-gray-700 leading-snug">
+              <strong>💡 Tipp:</strong> Rufen Sie uns gerne an, wenn Sie Fragen haben
+              oder einen Termin vereinbaren möchten. Wir freuen uns auf Sie!
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a
+              href="#booking"
+              class="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg active:scale-95 touch-manipulation text-sm sm:text-base text-center"
+              aria-label="Zum Buchungsformular scrollen"
+            >
+              Online Termin buchen
+            </a>
+            <a
+              href={BUSINESS_INFO.contact.phoneHref}
+              class="bg-white hover:bg-gray-50 active:bg-gray-100 text-primary-700 border-2 border-primary-600 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all text-center active:scale-95 touch-manipulation text-sm sm:text-base"
+              aria-label={`Telefonnummer ${BUSINESS_INFO.contact.phoneFormatted} anrufen`}
+            >
+              Jetzt anrufen
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="relative mt-6 lg:mt-0">
+        <div class="aspect-square rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
+          <iframe
+            src={`https://www.google.com/maps?q=${encodeURIComponent(BUSINESS_INFO.address.fullAddress)}&output=embed&z=15`}
+            width="100%"
+            height="100%"
+            style="border: 0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Karte zu ${BUSINESS_INFO.name} in ${BUSINESS_INFO.address.city}`}
+          />
+        </div>
+
+        <!-- Floating Info Card - Hidden on mobile to avoid covering map -->
+        <div class="hidden xl:block absolute -bottom-6 -right-6 bg-white rounded-xl shadow-2xl p-5 sm:p-6 max-w-xs z-10 border border-gray-100">
+          <div class="flex items-start space-x-3">
+            <div class="w-11 h-11 sm:w-12 sm:h-12 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-accent-600" set:html={icons.mapPin} />
+            </div>
+            <div>
+              <div class="font-bold text-sm sm:text-base text-gray-900 mb-1">
+                Besuchen Sie uns
+              </div>
+              <div class="text-xs sm:text-sm text-gray-600 leading-snug">
+                {BUSINESS_INFO.address.street}<br />
+                {BUSINESS_INFO.address.postalCode} {BUSINESS_INFO.address.city}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

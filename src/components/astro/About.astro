@@ -1,0 +1,110 @@
+---
+// About component - fully static, no JavaScript needed
+const credentials = [
+  {
+    icon: 'award',
+    title: 'Mehrfach Zertifiziert',
+    description: 'Professionelle Zertifizierungen in kosmetischer Fußpflege',
+  },
+  {
+    icon: 'users',
+    title: 'Professionell',
+    description: 'Qualifizierte Ausbildung und individuelle Betreuung',
+  },
+  {
+    icon: 'heart',
+    title: 'Mit Leidenschaft',
+    description: 'Individuelle und einfühlsame Betreuung',
+  },
+  {
+    icon: 'shield',
+    title: 'Höchste Hygiene',
+    description: 'Sterilisierte Instrumente nach medizinischen Standards',
+  },
+];
+
+// SVG icons as strings for static rendering
+const icons = {
+  award: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>',
+  users: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  heart: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>',
+  shield: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+};
+---
+
+<section id="about" class="bg-white">
+  <div class="container px-5 sm:px-6">
+    <div class="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
+      <!-- Owner Photo -->
+      <div class="order-2 md:order-1">
+        <div class="relative">
+          <!-- Designer Frame -->
+          <div class="aspect-[4/5] rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl hover:shadow-primary-300/40 transition-all duration-500">
+            {/* Outer frame with gradient */}
+            <div class="w-full h-full rounded-[1.5rem] sm:rounded-[2rem] p-[4px] sm:p-[6px] bg-gradient-to-br from-primary-400 via-accent-300 to-primary-300">
+              {/* Inner white border */}
+              <div class="w-full h-full rounded-[1.35rem] sm:rounded-[1.85rem] p-[2px] sm:p-[3px] bg-white">
+                {/* Image container */}
+                <div class="w-full h-full rounded-[1.2rem] sm:rounded-[1.7rem] overflow-hidden relative shadow-lg">
+                  <img
+                    src="/nails-work.jpg"
+                    alt="Lena Schneider - Professionelle Fußpflege und Nagelmodellage in Sachsenheim"
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                    width="600"
+                    height="750"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative elements - hide on mobile -->
+          <div class="hidden sm:block absolute -z-10 -bottom-6 -right-6 w-48 sm:w-72 h-48 sm:h-72 bg-accent-200 rounded-full opacity-20 blur-3xl" aria-hidden="true"></div>
+          <div class="hidden sm:block absolute -z-10 -top-6 -left-6 w-24 sm:w-32 h-24 sm:h-32 bg-primary-200 rounded-full opacity-30 blur-2xl" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="order-1 md:order-2 space-y-5 sm:space-y-6">
+        <div class="space-y-3 sm:space-y-4">
+          <div class="inline-block">
+            <span class="text-primary-600 font-semibold text-xs sm:text-sm uppercase tracking-wider bg-primary-50 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+              Über uns
+            </span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            Willkommen bei <span class="text-primary-600">Fußpflege Sachsenheim</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+            Herzlich willkommen in meinem Salon in Sachsenheim! Ich bin Lena und
+            mit mehreren professionellen Zertifizierungen biete ich Ihnen qualifizierte
+            Fußpflegedienstleistungen in entspannter Atmosphäre.
+          </p>
+          <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+            Mein Ziel ist es, Ihnen nicht nur gesunde und gepflegte Füße zu schenken,
+            sondern auch eine Auszeit vom Alltag zu bieten. Jede Behandlung wird
+            individuell auf Ihre Bedürfnisse abgestimmt - in einem gemütlichen Ambiente,
+            wo Sie sich wohlfühlen können.
+          </p>
+        </div>
+
+        <!-- Credentials Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 sm:pt-6">
+          {credentials.map((item) => (
+            <div class="flex items-start space-x-2 sm:space-x-3 p-3 sm:p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors touch-manipulation">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <span class="text-primary-600" set:html={icons[item.icon as keyof typeof icons]} />
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-gray-900 mb-0.5 sm:mb-1">
+                  {item.title}
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-600 leading-snug">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
