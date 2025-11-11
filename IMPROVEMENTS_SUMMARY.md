@@ -42,7 +42,6 @@ AIRTABLE_TABLE_NAME=Terminanfragen
 - ✅ **Preise aktualisiert:** Alle Servicepre ise eingefügt
 - ✅ **Domain aktualisiert:** Überall auf `fusspflege-lena-schneider.de`
 - ✅ **Email aktualisiert:** `info@fusspflege-lena-schneider.de`
-- ✅ **Coming Soon Seite:** Erstellt für Pre-Launch
 - ✅ **Neukunden-Rabatt:** 10% Rabatt-Banner hinzugefügt
 - ✅ **Medizinisch → Kosmetisch:** Überall geändert
 
@@ -185,7 +184,6 @@ Vor dem Live-Gehen:
 - `lib/utils/scroll.ts` - Scroll-Utility
 - `components/ErrorBoundary.tsx` - Fehlerbehandlung
 - `.env.example` - Template für Umgebungsvariablen
-- `app/coming-soon/page.tsx` - Pre-Launch Seite
 
 ### Geänderte Dateien:
 - `app/api/booking/route.ts` - Sicherheit + Validierung
