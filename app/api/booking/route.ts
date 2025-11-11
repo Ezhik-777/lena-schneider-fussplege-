@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import '@/lib/env'; // Validate environment variables
+import { validateEnv } from '@/lib/env';
 
 // Rate limiting: Simple in-memory store (for production, use Redis or similar)
 // Updated: 2025-11-09 - Increased limit for testing
@@ -80,6 +80,11 @@ const ALLOWED_ORIGINS = [
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment variables at runtime (first request will trigger this)
+    if (process.env.NODE_ENV === 'production') {
+      validateEnv();
+    }
+
     // Get client IP for rate limiting
     const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
 

@@ -43,7 +43,6 @@ export function validateEnv() {
   }
 }
 
-// Validate on module load in production
-if (process.env.NODE_ENV === 'production') {
-  validateEnv();
-}
+// Don't validate during build time - only at runtime
+// This prevents build failures on Vercel where env vars are only available at runtime
+// The validation will run when the API route is first called
