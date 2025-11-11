@@ -275,7 +275,7 @@ export default function StructuredData() {
         "name": "Wie lange dauert eine Behandlung?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Eine klassische Fußpflege dauert ca. 45-60 Minuten, Smart Pediküre ca. 60 Minuten, Fußreflexzonenmassage ca. 30 Minuten. Präventive Kosmetische Fußpflege dauert 45-60 Minuten."
+          "text": "Eine klassische Fußpflege dauert ca. 45-60 Minuten, Smart Pediküre ca. 60 Minuten, Fußreflexzonenmassage ca. 30 Minuten. Präventive Kosmetische Fußpflege dauert ca. 20 Minuten."
         }
       },
       {

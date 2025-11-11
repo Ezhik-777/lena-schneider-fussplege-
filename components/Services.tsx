@@ -8,7 +8,7 @@ export default function Services() {
       icon: '🌿',
       title: 'Präventive Kosmetische Fußpflege',
       description: 'Sanfte, kosmetische Behandlung zur Verbesserung des Haut- und Nagelbildes. Unterstützt die natürliche Regeneration und sorgt für hygienisch gepflegte Füße.',
-      duration: '45-60 Min.',
+      duration: '20 Min.',
       price: '60 €',
       features: [
         'Verbesserung des Haut- und Nagelbildes',
