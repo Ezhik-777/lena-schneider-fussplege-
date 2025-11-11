@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Rate limiting: Simple in-memory store (for production, use Redis or similar)
+// Updated: 2025-11-09 - Increased limit for testing
 const submissionTracker = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
-const MAX_SUBMISSIONS_PER_HOUR = 3;
+const MAX_SUBMISSIONS_PER_HOUR = 20; // Temporarily increased for testing
 
 // Helper function to sanitize string inputs (XSS prevention)
 function sanitizeString(input: string): string {
@@ -21,12 +22,21 @@ function isValidEmail(email: string): boolean {
   return emailRegex.test(email) && email.length <= 254;
 }
 
-// Validate phone number (German format)
+// Validate phone number (flexible international format)
 function isValidPhone(phone: string): boolean {
-  // Allow German phone formats: +49..., 0049..., or 0...
-  const phoneRegex = /^(\+49|0049|0)[1-9][0-9]{1,14}$/;
+  // Remove all formatting characters (spaces, dashes, parentheses, slashes)
   const cleanPhone = phone.replace(/[\s\-\/()]/g, '');
-  return phoneRegex.test(cleanPhone) && cleanPhone.length >= 6 && cleanPhone.length <= 16;
+
+  // Check if it contains only numbers and optionally starts with +
+  if (!/^\+?[0-9]+$/.test(cleanPhone)) {
+    return false;
+  }
+
+  // Get just the digits (without +)
+  const digits = cleanPhone.replace(/^\+/, '');
+
+  // Check minimum and maximum length
+  return digits.length >= 6 && digits.length <= 15;
 }
 
 // Rate limiting check
@@ -114,24 +124,16 @@ export async function POST(request: NextRequest) {
       nachricht: sanitizeString(data.nachricht || ''),
     };
 
-    // Validate required fields
-    if (!sanitizedData.vorname || !sanitizedData.nachname || !sanitizedData.email) {
+    // Validate required fields (only Vorname and Telefon are required)
+    if (!sanitizedData.vorname || !sanitizedData.telefon) {
       return NextResponse.json(
-        { message: 'Pflichtfelder fehlen: Vorname, Nachname und E-Mail sind erforderlich' },
+        { message: 'Pflichtfelder fehlen: Vorname und Telefonnummer sind erforderlich' },
         { status: 400 }
       );
     }
 
-    // Validate field lengths
-    if (sanitizedData.vorname.length < 2 || sanitizedData.nachname.length < 2) {
-      return NextResponse.json(
-        { message: 'Vor- und Nachname müssen mindestens 2 Zeichen lang sein' },
-        { status: 400 }
-      );
-    }
-
-    // Validate email
-    if (!isValidEmail(sanitizedData.email)) {
+    // Validate email if provided
+    if (sanitizedData.email && !isValidEmail(sanitizedData.email)) {
       return NextResponse.json(
         { message: 'Ungültige E-Mail-Adresse' },
         { status: 400 }
@@ -141,7 +143,10 @@ export async function POST(request: NextRequest) {
     // Validate phone if provided
     if (sanitizedData.telefon && !isValidPhone(sanitizedData.telefon)) {
       return NextResponse.json(
-        { message: 'Ungültige Telefonnummer. Bitte verwenden Sie ein deutsches Format.' },
+        {
+          message: 'Ungültige Telefonnummer',
+          error: 'Die Telefonnummer muss 6-15 Ziffern enthalten und darf nur Zahlen, +, Leerzeichen, - und () beinhalten.'
+        },
         { status: 400 }
       );
     }
@@ -257,9 +262,13 @@ export async function POST(request: NextRequest) {
 
       if (!telegramResponse.ok) {
         const errorData = await telegramResponse.json();
-        console.error('Telegram API error:', errorData);
-        throw new Error('Failed to send notification to Telegram');
+        console.error('Telegram API error:', JSON.stringify(errorData, null, 2));
+        console.error('Telegram response status:', telegramResponse.status);
+        throw new Error(`Failed to send notification to Telegram: ${JSON.stringify(errorData)}`);
       }
+
+      const successData = await telegramResponse.json();
+      console.log('Telegram message sent successfully:', successData.result?.message_id);
     } catch (error) {
       clearTimeout(timeoutId);
       // Log error but don't expose details to user

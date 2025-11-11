@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://fusspflege-lena-schneider.de/</loc>
-    <lastmod>2025-02-07</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -23,7 +23,7 @@
   <!-- Impressum -->
   <url>
     <loc>https://fusspflege-lena-schneider.de/impressum</loc>
-    <lastmod>2025-02-07</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -31,7 +31,7 @@
   <!-- Datenschutz -->
   <url>
     <loc>https://fusspflege-lena-schneider.de/datenschutz</loc>
-    <lastmod>2025-02-07</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
