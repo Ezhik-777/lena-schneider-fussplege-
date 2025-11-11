@@ -1,0 +1,29 @@
+# Robots.txt für Fußpflege Lena Schneider - Sachsenheim
+# Erlaubt allen Suchmaschinen die Indexierung
+
+User-agent: *
+Allow: /
+
+# Spezielle Erlaubnisse für Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Yandex Bot
+User-agent: Yandex
+Allow: /
+Crawl-delay: 0
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Blockiere sensible Bereiche
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap Locations
+Sitemap: https://fusspflege-lena-schneider.de/sitemap.xml
+Sitemap: https://www.fusspflege-lena-schneider.de/sitemap.xml

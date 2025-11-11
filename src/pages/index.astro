@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/astro/Header.astro';
+import Hero from '../components/astro/Hero.astro';
+import StructuredData from '../components/astro/StructuredData.astro';
+
+// Simple placeholder components for now
+---
+
+<Layout>
+  <StructuredData />
+  <Header />
+  <main id="main-content">
+    <Hero />
+
+    <!-- About Section -->
+    <section id="about" class="bg-white">
+      <div class="container">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Über uns
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Willkommen bei Fußpflege Lena Schneider in Sachsenheim.
+            Wir bieten professionelle kosmetische Fußpflege in angenehmer Atmosphäre.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section Placeholder -->
+    <section id="services" class="bg-gray-50">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Unsere Leistungen
+          </h2>
+          <p class="text-lg text-gray-700">
+            Von professioneller Pflege bis zur entspannenden Massage
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="bg-white">
+      <div class="container">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Ihre Vorteile
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <div class="text-center">
+              <div class="text-4xl mb-4">✓</div>
+              <h3 class="font-bold text-xl mb-2">Professionell</h3>
+              <p class="text-gray-600">Zertifizierte Fußpflegerin</p>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl mb-4">⚡</div>
+              <h3 class="font-bold text-xl mb-2">Schnell</h3>
+              <p class="text-gray-600">Flexible Termine</p>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl mb-4">🏆</div>
+              <h3 class="font-bold text-xl mb-2">Qualität</h3>
+              <p class="text-gray-600">Hochwertige Produkte</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section Placeholder -->
+    <section id="booking" class="bg-gray-50">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Termin vereinbaren
+          </h2>
+          <p class="text-lg text-gray-700 mb-8">
+            Rufen Sie uns an oder schreiben Sie uns eine Nachricht.
+          </p>
+          <div class="space-y-4">
+            <a
+              href="tel:+4917634237368"
+              class="block bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl"
+            >
+              Jetzt anrufen: +49 176 34237368
+            </a>
+            <a
+              href="mailto:info@fusspflege-lena-schneider.de"
+              class="block bg-white hover:bg-gray-50 text-primary-600 border-2 border-primary-600 px-8 py-4 rounded-lg font-bold text-lg transition-all"
+            >
+              E-Mail senden
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+      <div class="container py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-lg mb-4">Fußpflege Lena Schneider</h3>
+            <p class="text-gray-400">
+              Professionelle kosmetische Fußpflege<br />
+              in Sachsenheim
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4">Kontakt</h3>
+            <p class="text-gray-400">
+              Brunnenstraße 25<br />
+              74343 Sachsenheim<br />
+              <br />
+              Tel: +49 176 34237368<br />
+              Email: info@fusspflege-lena-schneider.de
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4">Rechtliches</h3>
+            <div class="space-y-2">
+              <a href="/impressum" class="block text-gray-400 hover:text-white">Impressum</a>
+              <a href="/datenschutz" class="block text-gray-400 hover:text-white">Datenschutz</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Fußpflege Lena Schneider. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>

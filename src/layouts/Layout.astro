@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Fußpflege Lena Schneider | Kosmetische Fußpflege & Pediküre in Sachsenheim',
+  description = 'Professionelle kosmetische Fußpflege in Sachsenheim ✓ Präventive Kosmetische Fußpflege ✓ B/S Spangentechnik ✓ Smart Pediküre ✓ Fußreflexzonenmassage ✓ Termine nach Vereinbarung'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
+
+    <!-- Business Information -->
+    <meta name="contact" content="info@fusspflege-lena-schneider.de" />
+    <meta name="telephone" content="+4917634237368" />
+    <meta name="address" content="Brunnenstraße 25, 74343 Sachsenheim" />
+
+    <!-- Geo-Location Meta Tags for Local SEO -->
+    <meta name="geo.region" content="DE-BW" />
+    <meta name="geo.placename" content="Sachsenheim" />
+    <meta name="geo.position" content="48.9615;9.0667" />
+    <meta name="ICBM" content="48.9615, 9.0667" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Language -->
+    <meta http-equiv="content-language" content="de" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50">
+      Zum Hauptinhalt springen
+    </a>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+</style>
