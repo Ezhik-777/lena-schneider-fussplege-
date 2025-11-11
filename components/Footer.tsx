@@ -107,7 +107,7 @@ export default function Footer() {
                 Fußreflexzonenmassage
               </li>
               <li className="hover:text-primary-400 transition-colors">
-                Präventive B/S Spangentechnik
+                Kosmetische Nagelkorrektur
               </li>
               <li className="hover:text-primary-400 transition-colors">
                 Shellac nur entfernen

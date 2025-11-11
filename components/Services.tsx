@@ -56,15 +56,15 @@ export default function Services() {
     },
     {
       icon: '🔧',
-      title: 'Präventive B/S Spangentechnik',
-      description: 'Innovative Korrekturspange für eingewachsene Fußnägel - schmerzfrei und effektiv.',
+      title: 'Kosmetische Nagelkorrektur',
+      description: 'Sanfte kosmetische Methode zur Nagelkorrektur.',
       duration: '10 Min.',
       price: '29 €',
       note: 'Ohne Fußpflege',
       features: [
-        'Für eingewachsene Fußnägel',
-        'Schmerzfreie Korrektur',
-        'Langanhaltende Ergebnisse',
+        'Sanfte kosmetische Methode',
+        'Kaum sichtbar',
+        'Pro Nagel',
       ],
     },
     {

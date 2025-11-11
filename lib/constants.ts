@@ -92,9 +92,9 @@ export const SERVICES = [
     icon: "💆",
   },
   {
-    id: "spange",
-    title: "Präventive B/S Spangentechnik",
-    description: "Nagelkorrektur mit der bewährten B/S Spangentechnik für eingewachsene Fußnägel",
+    id: "nagelkorrektur",
+    title: "Kosmetische Nagelkorrektur",
+    description: "Sanfte kosmetische Methode zur Nagelkorrektur",
     price: "29 €",
     duration: "ca. 10 Min.",
     icon: "🔧",
