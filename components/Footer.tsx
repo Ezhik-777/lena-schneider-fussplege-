@@ -101,13 +101,22 @@ export default function Footer() {
                 Smart Pediküre
               </li>
               <li className="hover:text-primary-400 transition-colors">
-                Klassische Fachfußpflege
+                Klassische Fachfußpflege mit Peeling
               </li>
               <li className="hover:text-primary-400 transition-colors">
                 Fußreflexzonenmassage
               </li>
               <li className="hover:text-primary-400 transition-colors">
-                B/S Spangentechnik
+                Präventive B/S Spangentechnik
+              </li>
+              <li className="hover:text-primary-400 transition-colors">
+                Shellac nur entfernen
+              </li>
+              <li className="hover:text-primary-400 transition-colors">
+                Nagelmodellage mit Gel
+              </li>
+              <li className="hover:text-primary-400 transition-colors">
+                Kosmetische Paraffinbehandlung
               </li>
             </ul>
           </div>

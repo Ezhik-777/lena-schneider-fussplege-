@@ -137,9 +137,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col ${
-                index >= services.length - 2 && index === services.length - 2 ? 'lg:col-start-2' : ''
-              }`}
+              className="bg-white rounded-2xl sm:rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:-translate-y-1 flex flex-col"
             >
               {/* Card Header */}
               <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-5 sm:p-5 md:p-6 text-center">
